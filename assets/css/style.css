@@ -24,4 +24,31 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+h1, h2, h3, h4 {
+  font-family: "gothambold", sans-serif;
+  color: #9191B5;
+}
+
+p {
+  font-family: "gothambook", sans-serif;
+  color: #9191B5;
+}
+
+.wrapper {
+  height: 100vh;
+}
+
+.section {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#1C2130), color-stop(75%, #252C40));
+  background-image: linear-gradient(0deg, #1C2130 0%, #252C40 75%);
+  background-color: #1C2130;
+  width: 100%;
+  height: 100%;
+}
+
+.section-1 {
+  background-color: #404359;
+  background-image: none;
+}
 /*# sourceMappingURL=style.css.map */
