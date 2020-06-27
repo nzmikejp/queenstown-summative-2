@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'gothambold';
+  src: url(../fonts/gotham/gothambold-webfont.woff2) format("woff2"), url(../fonts/gotham/gothambold-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gothambook';
+  src: url(../fonts/gotham/gotham-book-webfont.woff2) format("woff2"), url(../fonts/gotham/gotham-book-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'credit_cardregular';
+  src: url(../fonts/credit-card/credc___-webfont.woff2) format("woff2"), url(../fonts/credit-card/credc___-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   list-style-type: none;
   -webkit-box-sizing: border-box;

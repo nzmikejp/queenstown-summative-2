@@ -17,6 +17,36 @@ $container-radius-top: 1.875em 1.875em 0 0;
 $container-radius-bottom: 0 0 1.875em 1.875em;
 $image-radius-right: 0 1.125em 1.125em 0;
 
+$font-c-card: "credit_cardregular", sans-serif;
+$font-primary-book: 'gothambook', sans-serif;
+$font-primary-bold: 'gothambold', sans-serif;
+
+
+//--- custom fonts
+@font-face {
+    font-family: 'gothambold';
+    src: url(../fonts/gotham/gothambold-webfont.woff2) format('woff2'),
+         url(../fonts/gotham/gothambold-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothambook';
+    src: url(../fonts/gotham/gotham-book-webfont.woff2) format('woff2'),
+         url(../fonts/gotham/gotham-book-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'credit_cardregular';
+    src: url(../fonts/credit-card/credc___-webfont.woff2) format("woff2"),
+         url(../fonts/credit-card/credc___-webfont.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
 
 //--- hard reset
 * {
