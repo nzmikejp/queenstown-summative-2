@@ -1,2 +1,5 @@
 
-@import 'base', 'layout', 'modules';
+@import 'base', 'layout';
+@import './modules/back-btn', './modules/card', './modules/credit-card-form',
+        './modules/cta-button', './modules/custom-check', './modules/menu-btn',
+        './modules/progress-bar', './modules/rate-counter', './modules/star-rating';

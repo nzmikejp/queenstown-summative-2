@@ -5,7 +5,15 @@
         "style.scss",
         "_base.scss",
         "_layout.scss",
-        "_modules.scss"
+        "modules/_back-btn.scss",
+        "modules/_card.scss",
+        "modules/_credit-card-form.scss",
+        "modules/_cta-button.scss",
+        "modules/_custom-check.scss",
+        "modules/_menu-btn.scss",
+        "modules/_progress-bar.scss",
+        "modules/_rate-counter.scss",
+        "modules/_star-rating.scss"
     ],
     "names": [],
     "file": "style.css"
