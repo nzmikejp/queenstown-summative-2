@@ -49,8 +49,8 @@ p {
 }
 
 .neon-box {
-  -webkit-animation: box-flicker 3s linear forwards;
-          animation: box-flicker 3s linear forwards;
+  -webkit-animation: box-flicker 2s linear forwards;
+          animation: box-flicker 2s linear forwards;
   position: relative;
 }
 
