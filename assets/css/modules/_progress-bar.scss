@@ -1,0 +1,57 @@
+
+.progress-bar {
+    margin: 0.8em 2.3em;
+
+    .progress-title {
+        color: $mid-blue-gray;
+        text-transform: uppercase;
+        font-size: 0.64em;
+        margin-bottom: 1em;
+    }
+
+    .bar {
+        height: 4px;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        background-color: $dark-color-90;
+    }
+
+    .progress {
+        position: relative;
+        height: 100%;
+        width: 25%;
+        background-color: $neon-blue;
+        transition: all 0.5s ease;
+        border-radius: 3px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(3px, -50%);
+            width: 70%;
+            height: 200%;
+            background-image: linear-gradient(90deg, transparent 0%, $neon-blue 100%);
+            border-radius: 5px;
+            filter: blur(2px);
+            animation: bar-pulse 7s ease infinite;
+        }
+    }
+
+}
+
+@keyframes bar-pulse {
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}

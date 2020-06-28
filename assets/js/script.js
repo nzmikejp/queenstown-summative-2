@@ -60,7 +60,26 @@ $(function(){
 	$('.section2 .next').on('click',function(){
 		current++
 		tl.playTo(steps[current])
-	})
+    })
+    
+
+    //--- menu button effect
+    var isOpen = false
+    
+    $('.menu-btn').on('click',function(){
+
+        if(isOpen == false){
+            $(this).addClass('open')
+        
+            isOpen = true
+
+        }else {
+            $('.menu-btn').removeClass('open')
+                        
+            isOpen = false
+        }
+
+    })
 
 
 })

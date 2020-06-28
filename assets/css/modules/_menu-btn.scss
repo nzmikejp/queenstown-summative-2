@@ -1,0 +1,56 @@
+
+
+.menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.6em;
+    height: 1.6em;
+    transition: all .5s ease;
+    overflow: hidden;
+    position: relative;
+    z-index: 90;
+    cursor: pointer;
+
+
+    .menu-btn-burg {
+        width: 1.5em;
+        height: 3px;
+        background-color: $neon-blue;
+        border-radius: 3.5px;
+        transition: ease 0.5s all;
+
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            width: 1.5em;
+            height: 3px;
+            background-color: $neon-blue;
+            border-radius: 3px;
+            transition: ease 0.5s all;
+        }
+
+        &:before {
+            transform: translateY(-0.5em);
+        }
+        
+        &:after {
+            transform: translateY(0.5em);
+        }
+    }
+}
+
+.menu-btn.open .menu-btn-burg {
+    transform: translateX(-4em);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn-burg:before {
+    transform: rotate(45deg) translate(2.85em, -2.85em);
+}
+
+.menu-btn.open .menu-btn-burg:after {
+    transform: rotate(-45deg) translate(2.85em, 2.85em);
+}

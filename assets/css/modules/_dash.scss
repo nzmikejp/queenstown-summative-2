@@ -1,0 +1,28 @@
+
+.dash {
+    @include f-position(center, center);
+    text-align: center;
+    padding-bottom: 1em;
+    margin: 0 1.5em;
+    border-bottom: thin $dark-color-90 solid;
+
+    .dash-wrap {
+        padding: 0 1.2em;
+    }
+
+    .dash-wrap:not(:last-child) {
+        border-right: thin $dark-color-90 solid;
+    }
+
+    .dash-title {
+        color: $mid-blue-gray;
+        text-transform: uppercase;
+        font-size: 0.64em;
+        margin-bottom: 0.8em;
+    }
+
+    .dash-amount {
+        color: $dark-color-80;
+        font-size: 1.35em;
+    }
+}
