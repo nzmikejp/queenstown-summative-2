@@ -65,16 +65,65 @@ body {
     border-radius: $container-radius-bottom;
 }
 
-.menu {
+.header-menu {
     @include f-position(space-between, center);
     padding: 1.3em 1.3em 0.8em 1.3em;
 
-    .menu-logo {
+    .header-menu-logo {
         img {
             display: block;
             width: 3em;
         }
     }
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: $bg-gradient-rev;
+    clip-path: circle(0% at center);
+    transition: ease 0.5s all;
+    padding: 3em 1.8em;
+    opacity: 0;
+    z-index: 70;
+    overflow: hidden;
+    pointer-events: none;
+
+    .menu-logo {
+        img {
+            display: block;
+            width: 8em;
+            margin: auto;
+        }
+    }
+
+    .menu-links {
+        text-align: center;
+        padding: 0;
+        margin: 3.3em 0 0 0;
+
+        li:not(:last-child) {
+            border-bottom: thin $dark-color-90 solid;
+        }
+
+
+        a {
+            color: $mid-blue-gray;
+            text-transform: uppercase;
+            display: block;
+            padding: 1.75em 0;
+            font-size: 0.83;
+        }
+    }
+}
+
+.menu.open {
+    clip-path: circle(75%);
+    opacity: 1;
+    pointer-events: initial;
 }
 
 .section {

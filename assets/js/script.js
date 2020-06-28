@@ -69,12 +69,14 @@ $(function(){
     $('.menu-btn').on('click',function(){
 
         if(isOpen == false){
-            $(this).addClass('open')
+			$(this).addClass('open')
+			$('.menu').addClass('open')
         
             isOpen = true
 
         }else {
-            $('.menu-btn').removeClass('open')
+			$('.menu-btn').removeClass('open')
+			$('.menu').removeClass('open')
                         
             isOpen = false
         }
