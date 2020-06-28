@@ -33,6 +33,12 @@ $font-primary-bold: 'gothambold', sans-serif;
     align-items: $y;
 }
 
+@mixin bg-images($s, $p) {
+    background-size: $s;
+    background-repeat: no-repeat;
+    background-position: $p;
+}
+
 
 //--- custom fonts
 @font-face {

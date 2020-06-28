@@ -132,8 +132,18 @@ body {
   position: fixed;
   width: 100%;
   height: 11.68em;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(-150%);
+          transform: translateY(-150%);
   background-color: #1C2130;
   border-radius: 0 0 1.875em 1.875em;
+  z-index: 90;
+}
+
+.header.slide-down {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .header-menu {
@@ -182,19 +192,30 @@ body {
 .menu .menu-links {
   text-align: center;
   padding: 0;
-  margin: 3.3em 0 0 0;
+  margin: 3em 0 0 0;
 }
 
 .menu .menu-links li:not(:last-child) {
   border-bottom: thin #252C40 solid;
 }
 
-.menu .menu-links a {
+.menu .menu-links li:last-child a {
   color: #9191B5;
+  pointer-events: initial;
+}
+
+.menu .menu-links a {
+  color: #404359;
   text-transform: uppercase;
   display: block;
   padding: 1.75em 0;
-  font-size: 0.83;
+  font-size: 0.83em;
+  pointer-events: none;
+}
+
+.menu .menu-links .active {
+  color: #9191B5;
+  pointer-events: initial;
 }
 
 .menu.open {
@@ -397,6 +418,64 @@ body {
 
 .section-1 {
   background-color: #404359;
-  background-image: none;
+  background-image: url(../images/bg-scene.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 70%;
+}
+
+.section-1 .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.section-1 .layer-1 {
+  background-image: url(../images/hill.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+.section-1 .layer-2 {
+  background-image: url(../images/cloud-5.png);
+  background-size: 170%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  z-index: 1;
+}
+
+.section-1 .layer-3 {
+  background-image: url(../images/cloud-4.png);
+  background-size: 155%;
+  background-repeat: no-repeat;
+  background-position: bottom 12% left;
+  z-index: 6;
+}
+
+.section-1 .layer-4 {
+  background-image: url(../images/cloud-3.png);
+  background-size: 155%;
+  background-repeat: no-repeat;
+  background-position: bottom 35% right;
+  z-index: 5;
+}
+
+.section-1 .layer-5 {
+  background-image: url(../images/cloud-1.png);
+  background-size: 155%;
+  background-repeat: no-repeat;
+  background-position: bottom 95% left;
+  z-index: 4;
+}
+
+.section-1 .layer-6 {
+  background-image: url(../images/cloud-0.png);
+  background-size: 155%;
+  background-repeat: no-repeat;
+  background-position: bottom 100% right;
+  z-index: 2;
 }
 /*# sourceMappingURL=style.css.map */

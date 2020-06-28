@@ -9,21 +9,49 @@
         
 .section-1 {
     background-color: $dark-color-80;
-    background-image: none;
-}
+    background-image: url(../images/bg-scene.jpg);
+    @include bg-images(100%, 50% 70%);
 
-.section-2 {
+    .layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
-}
+    .layer-1 {
+        background-image: url(../images/hill.png);
+        @include bg-images(100%, bottom center);
+    }
 
-.section-3 {
+    .layer-2 {
+        background-image: url(../images/cloud-5.png);
+        @include bg-images(170%, bottom right);
+        z-index: 1;
+    }
 
-}
+    .layer-3 {
+        background-image: url(../images/cloud-4.png);
+        @include bg-images(155%, bottom 12% left);
+        z-index: 6;
+    }
 
-.section-4 {
+    .layer-4 {
+        background-image: url(../images/cloud-3.png);
+        @include bg-images(155%, bottom 35% right);
+        z-index: 5;
+    }
 
-}
+    .layer-5 {
+        background-image: url(../images/cloud-1.png);
+        @include bg-images(155%, bottom 95% left);
+        z-index: 4;
+    }
 
-.section-5 {
-
+    .layer-6 {
+        background-image: url(../images/cloud-0.png);
+        @include bg-images(155%, bottom 100% right);
+        z-index: 2;
+    }
 }

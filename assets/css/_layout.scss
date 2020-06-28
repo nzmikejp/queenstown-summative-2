@@ -61,8 +61,16 @@ body {
     position: fixed;
     width: 100%;
     height: 11.68em;
+    top: 0;
+    left: 0;
+    transform: translateY(-150%);
     background-color: $dark-color-100;
     border-radius: $container-radius-bottom;
+    z-index: 90;
+}
+
+.header.slide-down {
+    transform: translateY(0%);
 }
 
 .header-menu {
@@ -103,19 +111,30 @@ body {
     .menu-links {
         text-align: center;
         padding: 0;
-        margin: 3.3em 0 0 0;
+        margin: 3em 0 0 0;
 
         li:not(:last-child) {
             border-bottom: thin $dark-color-90 solid;
         }
 
+        li:last-child a {
+            color: $mid-blue-gray;
+            pointer-events: initial;
+        }
+
 
         a {
-            color: $mid-blue-gray;
+            color: $dark-color-80;
             text-transform: uppercase;
             display: block;
             padding: 1.75em 0;
-            font-size: 0.83;
+            font-size: 0.83em;
+            pointer-events: none;
+        }
+
+        .active {
+            color: $mid-blue-gray;
+            pointer-events: initial;
         }
     }
 }
