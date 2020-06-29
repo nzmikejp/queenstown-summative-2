@@ -34,6 +34,7 @@ h1, h2, h3, h4 {
 p {
   font-family: "gothambook", sans-serif;
   color: #9191B5;
+  line-height: 1.3;
 }
 
 .neon-el-blue {
@@ -463,6 +464,10 @@ body {
   font-size: 1.35em;
 }
 
+.none {
+  display: none !important;
+}
+
 .section-1 {
   background-color: #404359;
   overflow: hidden;
@@ -567,5 +572,53 @@ body {
 .section-1 .first-content .first-content-logo img {
   display: block;
   width: 12.4em;
+}
+
+.section-1 .second-content {
+  z-index: 9;
+}
+
+.section-1 .second-content .second-content-logo {
+  margin: 3.9em 0 3em 0;
+}
+
+.section-1 .second-content .second-content-logo img {
+  display: block;
+  width: 9.5em;
+  margin: 0 auto;
+}
+
+.section-1 .second-content .second-content-logo + div {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.section-1 .second-content h2 {
+  color: #fff;
+  font-size: 1.3em;
+  width: 90%;
+  margin: 0 0 1em 0;
+  position: relative;
+  padding-bottom: 0.5em;
+}
+
+.section-1 .second-content h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 90%;
+  background-color: #00A8FF;
+}
+
+.section-1 .second-content h2 span {
+  font-family: "gothambook", sans-serif;
+  font-weight: lighter;
+}
+
+.section-1 .second-content p {
+  font-size: 0.62em;
+  padding-bottom: 0.5em;
 }
 /*# sourceMappingURL=style.css.map */

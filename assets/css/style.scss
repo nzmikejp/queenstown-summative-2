@@ -6,7 +6,13 @@
         './modules/dash';
 
 
-        
+//--- remove after design is complete
+.none {
+    display: none!important;
+}
+
+
+
 .section-1 {
     background-color: $dark-color-80;
     overflow: hidden;
@@ -23,7 +29,6 @@
         img {
             display: block;
             width: 100%;
-            // transform: scale(4) translateY(-18%);
         }
     }
 
@@ -105,4 +110,53 @@
             }
         }
     }
+
+    .second-content {
+        z-index: 9;
+
+        .second-content-logo {
+            margin: 3.9em 0 3em 0;
+            
+            img {
+                display: block;
+                width: 9.5em;
+                margin: 0 auto;
+            }
+        }
+
+        .second-content-logo + div {
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            color: $light-color-100;
+            font-size: 1.3em;
+            width: 90%;
+            margin: 0 0 1em 0;
+            position: relative;
+            padding-bottom: 0.5em;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2px;
+                width: 90%;
+                background-color: $neon-blue;
+            }
+    
+            span {
+                font-family: $font-primary-book;
+                font-weight: lighter;
+            }
+        }
+    
+        p {
+            font-size: 0.62em;
+            padding-bottom: 0.5em;
+        }
+    }
+
 }

@@ -11,24 +11,26 @@ $(function(){
 	tl.add({
 
 		targets: '.first-content-logo',
-		duration: 1500,
-		easing:'linear',
-		opacity: [1 , 0]
+		duration: 2000,
+		easing:'easeInOutElastic',
+		opacity: [1 , 0],
+		translateY: [0, '10vh']
 
     })
     
 	tl.add({
 
 		targets: '.first-content .cta',
-		duration: 1500,
-		easing: 'linear',
-		opacity: [1 , 0]
+		duration: 2000,
+		easing:'easeInOutElastic',
+		opacity: [1 , 0],
+		translateY: [0, '10vh']
 
-    },0)
+    },400)
     
 	tl.add({
 		targets: '.layer-2',
-		easing: 'linear',
+		easing: 'easeInOutCubic',
 		duration: 5000,
 		opacity: [1,0],
 		translateX: [0, '150%'],
@@ -37,7 +39,7 @@ $(function(){
 	
 	tl.add({
 		targets: '.layer-3',
-		easing: 'linear',
+		easing: 'easeInOutCubic',
 		duration: 6000,
 		opacity: [1,0],
 		translateX: [0, '-150%'],
@@ -46,7 +48,7 @@ $(function(){
     
 	tl.add({
 		targets: '.layer-4',
-		easing: 'linear',
+		easing: 'easeInOutCubic',
 		duration: 7000,
 		opacity: [1,0],
 		translateX: [0, '150%'],
@@ -55,7 +57,7 @@ $(function(){
 	
 	tl.add({
 		targets: '.layer-5',
-		easing: 'linear',
+		easing: 'easeInOutCubic',
 		duration: 8000,
 		opacity: [1,0],
 		translateX: [0, '-150%'],
@@ -64,8 +66,8 @@ $(function(){
 	
 	tl.add({
 		targets: '.layer-6',
-		easing: 'linear',
-		duration: 3000,
+		easing: 'easeInOutCubic',
+		duration: 6000,
 		opacity: [1,0],
 		translateX: [0, '150%'],
 		scale: [4]
@@ -83,8 +85,16 @@ $(function(){
 		easing: 'linear',
 		duration: 7000,
 		scale: [4],
-		translateY: [0, '-18%'],
+		translateY: [0, '-19.5%'],
 	},1000)
+	
+	tl.add({
+		targets: '.second-content',
+		easing: 'easeInOutCubic',
+		duration: 1000,
+		opacity: [0,1]
+	},7800)
+	
 
     tl.playTo = playTo
     
