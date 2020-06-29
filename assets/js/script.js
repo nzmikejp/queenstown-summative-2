@@ -5,6 +5,9 @@ $(function(){
 		easing:'linear',
 		duration: 2000,
 		autoplay:false,
+		update:function(anim){
+			console.log(anim)
+		}
     })
     
 	tl.add({
