@@ -9,7 +9,8 @@
         
 .section-1 {
     background-color: $dark-color-80;
-
+    overflow: hidden;
+    
     .layer {
         position: absolute;
         top: 0;
@@ -19,51 +20,83 @@
     }
 
     .layer-0 {
-        background-image: url(../images/bg-scene.jpg);
-        @include bg-images(100%, 50% 70%);
+        img {
+            display: block;
+            width: 100%;
+            // transform: scale(4) translateY(-18%);
+        }
     }
 
     .layer-1 {
-        background-image: url(../images/hill.png);
-        @include bg-images(100%, bottom center);
+        img {
+            position: absolute;
+            display: block;
+            width: 100%;
+            bottom: 0;
+        }
     }
 
     .layer-2 {
-        background-image: url(../images/cloud-5.png);
-        @include bg-images(170%, bottom right);
         z-index: 1;
+
+        img {
+            position: absolute;
+            display: block;
+            bottom: 0;
+            right: 0;
+        }
     }
 
     .layer-3 {
-        background-image: url(../images/cloud-4.png);
-        @include bg-images(155%, bottom 12% left);
         z-index: 6;
+
+        img {
+            position: absolute;
+            display: block;
+            bottom: 9%;
+            left: 0;
+        }
     }
 
     .layer-4 {
-        background-image: url(../images/cloud-3.png);
-        @include bg-images(155%, bottom 35% right);
         z-index: 5;
+
+        img {
+            position: absolute;
+            display: block;
+            bottom: 20%;
+            right: 0;
+        }
     }
 
     .layer-5 {
-        background-image: url(../images/cloud-1.png);
-        @include bg-images(155%, bottom 95% left);
         z-index: 4;
+
+        img {
+            position: absolute;
+            display: block;
+            top: -2%;
+            left: 0;
+        }
     }
 
     .layer-6 {
-        background-image: url(../images/cloud-0.png);
-        @include bg-images(155%, bottom 100% right);
         z-index: 2;
+
+        img {
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+        }
     }
 
-    .content {
+    .first-content {
         @include f-position(center, center);
         flex-direction: column;
         z-index: 10;
 
-        .content-logo {
+        .first-content-logo {
             margin-bottom: 3em;
             
             img {

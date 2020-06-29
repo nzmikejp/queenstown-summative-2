@@ -120,6 +120,21 @@ p {
   }
 }
 
+.slide-d-0 {
+  -webkit-transform: translateY(0) !important;
+          transform: translateY(0) !important;
+}
+
+.slide-u-0 {
+  -webkit-transform: translateY(0) !important;
+          transform: translateY(0) !important;
+}
+
+.slide-u-100 {
+  -webkit-transform: translateY(-100vh) !important;
+          transform: translateY(-100vh) !important;
+}
+
 body {
   font-family: "gothambook", sans-serif;
 }
@@ -134,16 +149,23 @@ body {
   height: 11.68em;
   top: 0;
   left: 0;
-  -webkit-transform: translateY(-150%);
-          transform: translateY(-150%);
   background-color: #1C2130;
   border-radius: 0 0 1.875em 1.875em;
+  -webkit-transform: translateY(-120%);
+          transform: translateY(-120%);
+  -webkit-transition: ease 0.5s all;
+  transition: ease 0.5s all;
   z-index: 90;
 }
 
-.header.slide-down {
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
+.header .header-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 0 0 1.875em 1.875em;
+  z-index: -11;
 }
 
 .header-menu {
@@ -226,8 +248,15 @@ body {
 }
 
 .section {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  -webkit-transform: translateY(100vh);
+          transform: translateY(100vh);
+  -webkit-transition: ease 0.5s all;
+  transition: ease 0.5s all;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#1C2130), color-stop(75%, #252C40));
   background-image: linear-gradient(0deg, #1C2130 0%, #252C40 75%);
   background-color: #1C2130;
@@ -249,6 +278,10 @@ body {
   font-size: 0.75em;
   padding: 1.4em;
   border-radius: 2em;
+}
+
+.cta:focus {
+  outline: none;
 }
 
 .cta.begin {
@@ -432,6 +465,7 @@ body {
 
 .section-1 {
   background-color: #404359;
+  overflow: hidden;
 }
 
 .section-1 .layer {
@@ -442,61 +476,74 @@ body {
   height: 100%;
 }
 
-.section-1 .layer-0 {
-  background-image: url(../images/bg-scene.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 70%;
+.section-1 .layer-0 img {
+  display: block;
+  width: 100%;
 }
 
-.section-1 .layer-1 {
-  background-image: url(../images/hill.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: bottom center;
+.section-1 .layer-1 img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 0;
 }
 
 .section-1 .layer-2 {
-  background-image: url(../images/cloud-5.png);
-  background-size: 170%;
-  background-repeat: no-repeat;
-  background-position: bottom right;
   z-index: 1;
 }
 
+.section-1 .layer-2 img {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+}
+
 .section-1 .layer-3 {
-  background-image: url(../images/cloud-4.png);
-  background-size: 155%;
-  background-repeat: no-repeat;
-  background-position: bottom 12% left;
   z-index: 6;
 }
 
+.section-1 .layer-3 img {
+  position: absolute;
+  display: block;
+  bottom: 9%;
+  left: 0;
+}
+
 .section-1 .layer-4 {
-  background-image: url(../images/cloud-3.png);
-  background-size: 155%;
-  background-repeat: no-repeat;
-  background-position: bottom 35% right;
   z-index: 5;
 }
 
+.section-1 .layer-4 img {
+  position: absolute;
+  display: block;
+  bottom: 20%;
+  right: 0;
+}
+
 .section-1 .layer-5 {
-  background-image: url(../images/cloud-1.png);
-  background-size: 155%;
-  background-repeat: no-repeat;
-  background-position: bottom 95% left;
   z-index: 4;
 }
 
+.section-1 .layer-5 img {
+  position: absolute;
+  display: block;
+  top: -2%;
+  left: 0;
+}
+
 .section-1 .layer-6 {
-  background-image: url(../images/cloud-0.png);
-  background-size: 155%;
-  background-repeat: no-repeat;
-  background-position: bottom 100% right;
   z-index: 2;
 }
 
-.section-1 .content {
+.section-1 .layer-6 img {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+}
+
+.section-1 .first-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -513,11 +560,11 @@ body {
   z-index: 10;
 }
 
-.section-1 .content .content-logo {
+.section-1 .first-content .first-content-logo {
   margin-bottom: 3em;
 }
 
-.section-1 .content .content-logo img {
+.section-1 .first-content .first-content-logo img {
   display: block;
   width: 12.4em;
 }

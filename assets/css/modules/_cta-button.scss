@@ -7,6 +7,10 @@
     font-size: 0.75em;
     padding: 1.4em;
     border-radius: 2em;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .cta.begin {
