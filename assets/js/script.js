@@ -76,14 +76,14 @@ $(function(){
 	tl.add({
 		targets: '.layer-1',
 		easing: 'linear',
-		duration: 19000,
+		duration: 18000,
 		translateY: [0, '100%']
 	},1500)
 
 	tl.add({
 		targets: '.layer-0',
 		easing: 'linear',
-		duration: 7000,
+		duration: 6000,
 		scale: [4],
 		translateY: [0, '-19.5%'],
 	},1000)
@@ -93,7 +93,7 @@ $(function(){
 		easing: 'easeInOutCubic',
 		duration: 1000,
 		opacity: [0,1]
-	},7800)
+	},6800)
 	
 
     tl.playTo = playTo
