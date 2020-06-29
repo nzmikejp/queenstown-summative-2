@@ -9,8 +9,6 @@
         
 .section-1 {
     background-color: $dark-color-80;
-    background-image: url(../images/bg-scene.jpg);
-    @include bg-images(100%, 50% 70%);
 
     .layer {
         position: absolute;
@@ -18,6 +16,11 @@
         left: 0;
         width: 100%;
         height: 100%;
+    }
+
+    .layer-0 {
+        background-image: url(../images/bg-scene.jpg);
+        @include bg-images(100%, 50% 70%);
     }
 
     .layer-1 {
@@ -53,5 +56,20 @@
         background-image: url(../images/cloud-0.png);
         @include bg-images(155%, bottom 100% right);
         z-index: 2;
+    }
+
+    .content {
+        @include f-position(center, center);
+        flex-direction: column;
+        z-index: 10;
+
+        .content-logo {
+            margin-bottom: 3em;
+            
+            img {
+                display: block;
+                width: 12.4em;
+            }
+        }
     }
 }
