@@ -91,9 +91,10 @@ $(function(){
 	tl.add({
 		targets: '.second-content',
 		easing: 'easeInOutCubic',
-		duration: 1000,
+		duration: 2500,
+		scale: [4,1],
 		opacity: [0,1]
-	},6800)
+	},4800)
 	
 
     tl.playTo = playTo
