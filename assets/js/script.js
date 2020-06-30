@@ -85,7 +85,7 @@ $(function(){
 		easing: 'linear',
 		duration: 6000,
 		scale: [4],
-		translateY: [0, '-19.5%'],
+		translateY: [0, '-19.5vh'],
 	},1000)
 	
 	tl.add({

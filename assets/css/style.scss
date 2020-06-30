@@ -2,8 +2,8 @@
 @import 'base', 'layout';
 @import './modules/back-btn', './modules/card', './modules/credit-card-form',
         './modules/cta-button', './modules/custom-check', './modules/menu-btn',
-        './modules/progress-bar', './modules/rate-counter', './modules/star-rating',
-        './modules/dash';
+        './modules/progress-bar', './modules/unit-counter', './modules/star-rating',
+        './modules/dash', './modules/unit-calendar';
 
 
 //--- remove after design is complete
@@ -40,8 +40,10 @@
 
     .layer-0 {
         img {
+            position: absolute;
             display: block;
             width: 100%;
+            bottom: 0;
         }
     }
 
