@@ -16,7 +16,7 @@ $bg-gradient-rev: linear-gradient(180deg, $dark-color-100 50%, $dark-color-90 10
 
 $neon-blue-container-glow: 0 0.25em 2.32em $neon-blue;
 $neon-blue-el-glow: 0 0 2px $neon-blue;
-$neon-blue-btn-glow: 0 0 1.375em $neon-blue;
+$neon-blue-btn-glow: 0 0 1.4em $neon-blue;
 
 $container-radius-top: 1.875em 1.875em 0 0;
 $container-radius-bottom: 0 0 1.875em 1.875em;
@@ -76,12 +76,12 @@ $font-primary-bold: 'gothambold', sans-serif;
 
 
 //--- font styles
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: $font-primary-bold;
     color: $mid-blue-gray;
 }
 
-p {
+h4, p {
     font-family: $font-primary-book;
     color: $mid-blue-gray;
     line-height: 1.3;

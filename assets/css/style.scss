@@ -17,7 +17,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    transform: translateY(100%);
+    transform: translateY(100vh);
     transition: ease 0.5s all;
     background-image: $bg-gradient;
     background-color: $dark-color-100;
@@ -174,4 +174,102 @@
         }
     }
 
+}
+
+.section-2 {
+    transform: translateY(0);
+    padding-top: 15em;
+    text-align: center;
+
+    h2 {
+        font-size: 1.3em;
+        text-transform: uppercase;
+        
+        span {
+            font-family: $font-primary-book;
+            font-size: 0.75em;
+        }
+    }
+
+    .select-wrapper {
+        @include f-position(center, flex-end);
+        flex-wrap: wrap;
+    }
+
+    .select {
+        flex: 0 0 40%;
+        padding: 1em;
+        pointer-events: none;
+    }
+
+    .select-hotel {
+        border-right: thin $dark-color-80 solid;
+        border-bottom: thin $dark-color-80 solid;
+    }
+    
+    .select-hostel {  
+        border-bottom: thin $dark-color-80 solid;
+    }
+    
+    .select-motel {
+        border-right: thin $dark-color-80 solid;
+    }
+    
+    .select-icon {
+        path {
+            fill: $dark-color-80;
+        }  
+    }
+
+    .select-title {
+        text-transform: uppercase;
+        font-size: 1.1em;
+        color: $dark-color-80;
+        padding-bottom: 0.5em;
+        border-bottom: thin $dark-color-80 solid;
+    }
+
+    .select-title + div {
+        @include f-position(space-between, flex-start);
+
+        h4 {
+            text-transform: uppercase;
+            font-size: 0.8em;
+            margin: 0;
+            color: $dark-color-80;
+        }
+
+        p {
+            font-size: 0.5em;
+            text-transform: uppercase;
+            text-align: right;
+            color: $dark-color-80;
+        }
+    }
+    
+    .select.active {
+        pointer-events: initial;
+
+        .select-icon {
+            filter: drop-shadow($neon-blue-el-glow);
+
+            path {
+                fill: $neon-blue;
+            }
+        }
+
+        .select-title {
+            color: $light-color-100; 
+        }
+
+        .select-title + div {    
+            h4 {
+                color: $mid-blue-gray;
+            }
+    
+            p {
+                color: $mid-blue-gray;
+            }
+        }
+    }
 }

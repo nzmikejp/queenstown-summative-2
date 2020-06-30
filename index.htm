@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/lightpick.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Queenstown | Home of Adventure</title>
 </head>
@@ -27,11 +28,11 @@
             <div class="dash">
                 <div class="dash-wrap dash-pax">
                     <div class="dash-title">Pax</div>
-                    <div class="dash-amount neon-el-blue">1</div>
+                    <div class="dash-amount neon-el-blue">0</div>
                 </div>
                 <div class="dash-wrap dash-nights">
                     <div class="dash-title">Nights</div>
-                    <div class="dash-amount neon-el-blue">1</div>
+                    <div class="dash-amount neon-el-blue">0</div>
                 </div>
                 <div class="dash-wrap dash-rate">
                     <div class="dash-title">Stay rate</div>
@@ -64,7 +65,7 @@
                </ul>
             </div>
         </header>
-        <section class="section section-1">
+        <section class="section section-1 none">
             <div class="layer layer-0">
                 <img src="./assets/images/bg-scene.jpg" alt="">
             </div>
@@ -115,31 +116,104 @@
                 </div>
             </div>  
         </section>
-        <section class="section section-2"></section>
+        <section class="section section-2">
+            <h2>Select <span>your stay</span></h2>
+            <div class="select-wrapper">
+                <div class="select select-hotel active" data-rate="157">
+                    <div class="select-icon">
+                        <svg width="84" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M48.6 33.1h-2.1v2.5h2.1v-2.5zM45.6 49.6h-2.1v2.5h2.1v-2.5zM45.6 53.7h-2.1v2.5h2.1v-2.5zM48.6 41.3h-2.1v2.5h2.1v-2.5zM48.6 49.6h-2.1v2.5h2.1v-2.5zM48.6 45.5h-2.1V48h2.1v-2.5zM42.7 53.7h-2.1v2.5h2.1v-2.5zM42.7 45.5h-2.1V48h2.1v-2.5zM45.6 33.1h-2.1v2.5h2.1v-2.5zM45.6 41.3h-2.1v2.5h2.1v-2.5zM51.5 37.2h-2.1v2.5h2.1v-2.5zM75.2 50.7H57v2.1h18.2v-2.1zM75.2 47H57v2.1h18.2V47z" fill="#000"/>
+                            <path d="M55.3 29.1H33.9v25.3h-4.3v2.1H36V31.2h17.2v25.3h7.5v-2.1h-5.4V29.1z" fill="#000"/>
+                            <path d="M48.8 2.7l21.6 4.7v3.3H56v2.2h14.4v.7h-17v2.1h17v3.6h-17v2.1h17v.8H56v2.1h14.4v3.6H60.1V30h10.3v.7H58.1v2.2h12.3v.7h-8.7v2.1h8.7v2.2h2.1V5.7L46.7 0v27.9h2.1V2.7zM51.5 49.6h-2.1v2.5h2.1v-2.5zM51.5 41.3h-2.1v2.5h2.1v-2.5zM42.7 37.2h-2.1v2.5h2.1v-2.5zM51.5 33.1h-2.1v2.5h2.1v-2.5zM51.5 53.7h-2.1v2.5h2.1v-2.5zM75.2 43.3H57v2.1h18.2v-2.1zM31.7 46.3h-7.5v2.1h7.5v-2.1zM31.7 50h-7.5v2.1h7.5V50zM31.7 42.6h-7.5v2.1h7.5v-2.1zM31.7 38.9h-7.5V41h7.5v-2.1zM31.7 35.2h-7.5v2.1h7.5v-2.1zM31.7 31.5h-7.5v2.1h7.5v-2.1zM11.5 25.7H9.4v28.1h2.1V25.7zM8.4 25.7H6.3v28.1h2.1V25.7z" fill="#000"/>
+                            <path d="M81.1 54.4V42.7h-2.6v-3.6H56.8v2.2h19.6v3.5h2.5v11.7h3v5.2H2.1v-5.2h3V24h3.3v-2h5.9v2h1.5v32.5h6.7V11.3h3.2V9.1h13.1v2.2H42v16.6h2.1V9.2h-3.2V7H23.6v2.2h-3.2v45.2H18V21.9h-1.5v-2H6.2v2H3v32.5H0v9.4h84v-9.4h-2.9z" fill="#000"/>
+                            <path d="M14.7 25.7h-2.1v28.1h2.1V25.7zM31.7 27.8h-7.5v2.1h7.5v-2.1zM39.7 49.6h-2.1v2.5h2.1v-2.5zM39.7 37.2h-2.1v2.5h2.1v-2.5zM39.7 53.7h-2.1v2.5h2.1v-2.5zM39.7 33.1h-2.1v2.5h2.1v-2.5zM39.7 45.5h-2.1V48h2.1v-2.5zM39.7 41.3h-2.1v2.5h2.1v-2.5zM40.1 24.1H24.2v2.1h15.9v-2.1zM40.1 20.4H24.2v2.1h15.9v-2.1zM37.5 13H24.2v2.1h13.3V13zM40.1 16.7H31v2.1h9.1v-2.1z" fill="#000"/>
+                        </svg>
+                    </div>
+                    <h3 class="select-title">hotel</h3>
+                    <div>
+                        <h4>Rate</h4>
+                        <div>
+                            <h4>$157.00</h4>
+                            <p>per night</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="select select-hostel active" data-rate="30">
+                    <div class="select-icon">
+                        <svg width="40" height="39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40 9.9V3.7h-8.1V0H8.1v3.8H0V10h1.5v23.6H.3v5.2h39.3v-5.2h-1.2V9.9H40zM10.1 2.1h19.6v1.6H10.1V2.1zm12.4 34.5h-5.2V24.8h5.2v11.8zM37.8 7.8h-1.5v27.9h1.2v.9H24.7V22.7h-9.5v13.9H2.4v-.9h1.2V7.8H2.1V5.9h35.8v1.9h-.1z" fill="#000"/>
+                            <path d="M33.3 9.2h-6.6v9.3h6.6V9.2zm-2.1 7.1h-2.3v-5.1h2.3v5.1zM13.2 9.2H6.6v9.3h6.6V9.2zM11 16.3H8.7v-5.1H11v5.1zM13.2 22.7H6.6V32h6.6v-9.3zM11 29.9H8.7v-5.1H11v5.1zM23.2 9.2h-6.6v9.3h6.6V9.2zm-2.1 7.1h-2.3v-5.1h2.3v5.1zM33.3 22.7h-6.6V32h6.6v-9.3zm-2.1 7.2h-2.3v-5.1h2.3v5.1z" fill="#000"/>
+                        </svg>
+                    </div>
+                    <h3 class="select-title">hostel</h3>
+                    <div>
+                        <h4>Rate</h4>
+                        <div>
+                            <h4>$30.00</h4>
+                            <p>per night</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="select select-motel" data-rate="90">
+                    <div class="select-icon">
+                        <svg width="51" height="47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46.2 21.3h-2.1v22.8H29.7V32.3H21v11.8H6.6V21.3H4.5v22.8H1.2v2.1h48.4v-2.1h-3.3V21.3h-.1zM27.5 44.1h-4.4v-9.7h4.4v9.7z" fill="#000"/>
+                            <path d="M9.6 42.1h8.7v-9.8H9.6v9.8zm2.2-7.7h4.4V40h-4.4v-5.6zM47 5.1H19.2V0h-7.9v5.1H3.6L0 16v3.4h50.6V16L47 5.1zm1.5 12.2H2.1v-.9l3-9.1h8.3V2.2H17v5.1h28.4l3 9.1v.9h.1zM41.1 20.9h-8.7v9.8h8.7v-9.8zM39 28.6h-4.4V23H39v5.6zM32.4 42.1h8.7v-9.8h-8.7v9.8zm2.1-7.7h4.4V40h-4.4v-5.6zM18.3 20.9H9.6v9.8h8.7v-9.8zm-2.1 7.7h-4.4V23h4.4v5.6zM29.6 20.9h-8.7v9.8h8.7v-9.8zm-2.1 7.7h-4.4V23h4.4v5.6z" fill="#000"/>
+                        </svg>
+                    </div>
+                    <h3 class="select-title">motel</h3>
+                    <div>
+                        <h4>Rate</h4>
+                        <div>
+                            <h4>$90.00</h4>
+                            <p>per night</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="select select-house active" data-rate="240">
+                    <div class="select-icon">
+                        <svg width="68" height="35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.5 2.7L41.6 16h24.8V3.7H27.8L22.5 0l-5.7 4V1.1H8.4v8.7L.8 15.1 2 16.8 22.5 2.7zm41.8 3.2v7.9h-22l-11.4-8h33.4v.1zM10.5 3.3h4.2v2.2l-4.2 2.9V3.3zM64.1 32.3V16.8H62v15.5h-1.9V18.9H40.7v13.4h-3.5V18.8h-9v13.5H5.8V16.8H3.6v15.5H0v2.1h67.7v-2.1h-3.6zm-29 0h-4.8V20.9H35v11.4h.1zm22.8-10.1H44.2v2.1h13.7v1.3H44.2v2.1h13.7V29H44.2v2.1h13.7v1.1h-15V21h15v1.2z" fill="#000"/>
+                            <path d="M8.3 28.2h17.6v-9.3H8.3v9.3zm2.1-7.2h13.3v5H10.4v-5z" fill="#000"/>
+                        </svg>
+                    </div>
+                    <h3 class="select-title">house</h3>
+                    <div>
+                        <h4>Rate</h4>
+                        <div>
+                            <h4>$240.00</h4>
+                            <p>per night</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="section section-3"></section>
         <section class="section section-4"></section>
         <section class="section section-5"></section>
         <footer class="footer">
-            <div class="footer-bg neon-box"></div>
+            <div class="footer-bg"></div>
             <div class="unit-counter">
-                <div class="counter-title"><span>Number of People</span></div>
+                <div class="counter-title"><span>Number of People (4 max)</span></div>
                 <div class="counter-wrapper">
-                    <div class="cta-round neon-btn">
-                        <i class="fas fa-minus less neon-el-blue"></i>
+                    <div class="cta-round less">
+                        <i class="fas fa-minus neon-el-blue"></i>
                     </div>
-                    <input class="neon-el-white" type="text" value="1" name="unit-pax">
-                    <div class="cta-round neon-btn">
-                        <i class="fas fa-plus more neon-el-blue"></i> 
+                    <input class="neon-el-white" type="text" value="0" id="unit-pax" name="unit-pax">
+                    <div class="cta-round more">
+                        <i class="fas fa-plus neon-el-blue"></i> 
                     </div>
                 </div>
             </div>
             <div class="unit-calendar">
-                <input type="text" id="unt-nights" name="unit-nights" placeholder="add your nights" >
+                <input type="text" id="unit-nights" name="unit-nights" placeholder="add your nights here" >
             </div>
+            <button class="cta neon-btn">next</button>
         </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="./assets/js/lightpick.js"></script>
     <script src="./assets/js/anime.min.js"></script>
     <script src="./assets/js/anime_extensions.js"></script>
     <script src="./assets/js/script.js"></script>
