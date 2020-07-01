@@ -307,22 +307,22 @@ $(function(){
 		$('.dash-rate').find('span').html(iRate)
 		$('.dash-total').find('span').html(iNumTotal)
 
-		var $thisRate = $('.dash-rate').find('span')
-		var $thisTotal = $('.dash-total').find('span')
+		var thisRate = $('.dash-rate').find('span')
+		var thisTotal = $('.dash-total').find('span')
 
 		
 
-		$({Counter: 0}).animate({Counter: $thisRate.text()}, {
+		$({Counter: 0}).animate({Counter: thisRate.text()}, {
 			duration: 250,
 			step: function () {
-				$thisRate.text(Math.ceil(this.Counter));
+				thisRate.text(Math.ceil(this.Counter));
 			}
 		})
 		
-		$({Counter: 0}).animate({Counter: $thisTotal.text()}, {
+		$({Counter: 0}).animate({Counter: thisTotal.text()}, {
 			duration: 250,
 			step: function () {
-				$thisTotal.text(Math.ceil(this.Counter));
+				thisTotal.text(Math.ceil(this.Counter));
 			}
 		})
 
