@@ -1,0 +1,90 @@
+
+.card {
+    padding: 1.2em 0;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        border-bottom: thin $dark-color-80 solid;
+    }
+
+    input {
+        display: none;
+    }
+
+    label {
+        display: flex;
+        justify-content: flex-start;
+
+        .card-image {
+            flex: 0 0 40%;
+            height: 8em;
+            @include bg-images(cover, center);
+            border-radius: $image-radius-right;
+        }
+
+        .card-content {
+            flex: 1 0 40%;
+            padding: 0 1.7em;
+
+            h3 {
+                font-size: 0.875em;
+                color: $light-color-100;
+                margin: 0;
+            }
+
+            p {
+                font-size: 0.58em;
+            }
+        }
+        
+        .check {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(-100%, 50%);
+            width: 1.8em;
+            height: 1.8em;
+            @include f-position(center, center);
+            border-radius: 50%;
+            border: thin $dark-color-80 solid;
+            background-color: $dark-color-100;
+            z-index: 20;
+        
+            i {
+                font-size: 1.1em;
+                color: $dark-color-80;
+                margin-top: 0.1em;
+            }
+        }
+    }
+
+    input:checked + label {
+        .check {
+            border: none;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $dark-color-100;
+                border-radius: 50%;
+                animation: btn-glow 5s linear infinite;
+                z-index: -1;
+            }
+            
+            i {
+                color: $neon-blue;
+                filter: drop-shadow($neon-blue-el-glow);
+            }
+        }
+    }
+}

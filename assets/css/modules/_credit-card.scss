@@ -1,0 +1,147 @@
+
+.credit-card-image {
+    width: 14.31em;
+    height: 9.25em;
+    border-radius: 0.3em;
+    margin: 0 auto 3em auto;
+    @include bg-images(cover, center);
+    background-image: url(/assets/images/c-card-bg.png);
+    box-shadow: 0 0.5em 1em -0.5em rgba(0,0,0,0.6);
+    position: relative;
+
+    .cc-number {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        line-height: 1.7;
+        text-align: center;
+        font-family: $font-c-card;
+        font-weight: lighter;
+        font-size: 0.8em;
+        color: lighten($neon-blue, 20%);
+        text-shadow: 0.1em 0.1em 0.1em rgba(0,0,0,0.4), -0.1em -0.1em 0.1em rgba(255,255,255,0.2);
+        letter-spacing: 0.06em;
+    }
+
+    .cc-name {
+        position: absolute;
+        display: block;
+        bottom: 1em;
+        left: 0;
+        width: 100%;
+        line-height: 1.7;
+        text-align: left;
+        padding: 0 1em;
+        font-family: $font-c-card;
+        text-transform: uppercase;
+        font-weight: lighter;
+        font-size: 0.6em;
+        color: lighten($neon-blue, 20%);
+        text-shadow: 0.1em 0.1em 0.1em rgba(0,0,0,0.4), -0.1em -0.1em 0.1em rgba(255,255,255,0.2);
+        letter-spacing: 0.06em;
+    }
+}
+
+.credit-card-image.visa {
+    background-image: url(/assets/images/c-card-bg-visa.png);
+}
+
+.credit-card-image.mc {
+    background-image: url(/assets/images/c-card-bg-mc.png);
+}
+
+.credit-card-input {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 0.6em;
+
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        margin-top: 0.5em;
+        border: none;
+        border-bottom: thin $dark-color-80 solid;
+        background-color: transparent;
+        padding: 0.5em;
+        line-height: 1.5;
+        border-radius: 0.2em;
+        color: $mid-blue-gray;
+        position: relative;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            opacity: 1;
+            color: $mid-blue-gray;
+            text-transform: uppercase;
+            font-size: 0.75em;
+        }
+    }
+
+    input + span {
+        position: absolute;
+        width: 1.9em;
+        height: 1.9em;
+        top: 50%;
+        right: 0;
+        transform: translate(20%, -50%);
+        border-radius: 50%;
+        transition: ease 0.5s all;
+    }
+
+    .message-sucess {
+        background-color: $dark-color-100;
+        box-shadow: 0 0 1.4em $neon-green;
+
+        &:before {
+            content: '\f00c';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 1px;
+            font-size: 0.9em;
+            color: $neon-green; 
+        }
+    }
+
+    .message-error {
+        background-color: $dark-color-100;
+        box-shadow: 0 0 1.4em $neon-red;
+
+        &:before {
+            content: '\f00d';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+            color: $neon-red; 
+        }
+    }
+}
+
+.fg-wrapper {
+    @include f-position(space-between, center);
+
+    & > div:first-child {
+        flex: 1 0 20%;
+        margin-right: 1.5em;
+    }
+
+    & > div:last-child {
+        flex: 0 0 20%;
+    }
+}

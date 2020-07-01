@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'gothambook';
+  src: url(../fonts/gotham/gotham-book-webfont.woff2) format("woff2"), url(../fonts/gotham/gotham-book-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .lightpick {
   position: absolute;
   z-index: 99999;
@@ -7,7 +14,7 @@
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   color: #9191B5;
-  font-family: system-ui, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "gothambook", sans-serif;
   line-height: 1.125em;
 }
 

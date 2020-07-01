@@ -1,7 +1,7 @@
 
 @import 'base', 'layout';
-@import './modules/back-btn', './modules/card', './modules/credit-card-form',
-        './modules/cta-button', './modules/custom-check', './modules/menu-btn',
+@import './modules/back-btn', './modules/card', './modules/credit-card',
+        './modules/cta-button', './modules/menu-btn',
         './modules/progress-bar', './modules/unit-counter', './modules/star-rating',
         './modules/dash', './modules/unit-calendar';
 
@@ -177,7 +177,6 @@
 }
 
 .section-2 {
-    transform: translateY(0);
     padding-top: 15em;
     text-align: center;
 
@@ -271,5 +270,206 @@
                 color: $mid-blue-gray;
             }
         }
+    }
+}
+
+.section-3 {
+    overflow-y: scroll;
+    padding-top: 12em;
+
+    .image-1 {
+        background-image: url(/assets/images/hotel-1.jpg);
+    }
+    
+    .image-2 {
+        background-image: url(/assets/images/hotel-2.jpg);
+    }
+    
+    .image-3 {
+        background-image: url(/assets/images/hotel-3.jpg);
+    }
+
+    .cta {
+        margin: 2.5em auto;
+    }
+}
+
+.section-4 {
+    overflow-y: scroll;
+    padding-top: 12em;
+
+    .image-1 {
+        background-image: url(/assets/images/hostel-1.jpg);
+    }
+
+    .image-2 {
+        background-image: url(/assets/images/hostel-2.jpg);
+    }
+    
+    .image-3 {
+        background-image: url(/assets/images/hostel-3.jpg);
+    }
+
+    .cta {
+        margin: 2.5em auto;
+    }
+}
+
+.section-5 {
+    overflow-y: scroll;
+    padding-top: 12em;
+
+    .image-1 {
+        background-image: url(/assets/images/motel-1.jpg);
+    }
+
+    .image-2 {
+        background-image: url(/assets/images/motel-2.jpg);
+    }
+    
+    .image-3 {
+        background-image: url(/assets/images/motel-3.jpg);
+    }
+
+    .cta {
+        margin: 2.5em auto;
+    }
+}
+
+.section-6 {
+    overflow-y: scroll;
+    padding-top: 12em;
+
+    .image-1 {
+        background-image: url(/assets/images/house-1.jpg);
+    }
+
+    .image-2 {
+        background-image: url(/assets/images/house-2.jpg);
+    }
+    
+    .image-3 {
+        background-image: url(/assets/images/house-3.jpg);
+    }
+
+    .cta {
+        margin: 2.5em auto;
+    }
+}
+
+.section-7 {
+    overflow-y: scroll;
+    padding-top: 12em;
+
+    .select-clone {
+        height: 12em;
+        border: thin $dark-color-80 solid;
+    }
+    
+    h2 {
+        font-size: 1.3em;
+        text-transform: uppercase;
+        text-align: center;
+        
+        span {
+            font-family: $font-primary-book;
+            font-size: 0.75em;
+        }
+    }
+
+    .card {
+        padding: 0.4em 0;
+        position: relative;
+    
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            border-bottom: thin $dark-color-80 solid;
+        }
+    
+        input {
+            display: none;
+        }
+    
+        label {
+            @include f-position(center, center);
+            padding: 0 1.5em;
+    
+            .card-deal {
+                flex: 1 0 30%;
+
+                p {
+                    font-size: 0.7em;
+                    text-transform: uppercase;
+                }
+            }
+    
+            .card-price {
+                flex: 0 0 22%;
+  
+                p {
+                    font-size: 0.7em;
+                }
+            }
+            
+            .check-deal {
+                flex: 0 0 1.8em;
+                height: 1.8em;
+                @include f-position(center, center);
+                border-radius: 50%;
+                border: thin $dark-color-80 solid;
+                background-color: $dark-color-100;
+                position: relative;
+                z-index: 20;
+            
+                i {
+                    font-size: 1.1em;
+                    color: $dark-color-80;
+                    margin-top: 0.1em;
+                }
+            }
+        }
+    
+        input:checked + label {
+            .check-deal {
+                border: none;
+    
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $dark-color-100;
+                    border-radius: 50%;
+                    animation: btn-glow 5s linear infinite;
+                    z-index: -1;
+                }
+                
+                i {
+                    color: $neon-blue;
+                    filter: drop-shadow($neon-blue-el-glow);
+                }
+            }
+        }
+    }
+
+    .cta {
+        margin: 2.5em auto;
+    }
+}
+
+.section-8 {
+    transform: translateY(0);
+    overflow-y: scroll;
+    padding-top: 15em;
+
+    .cta {
+        margin: 2.5em auto;
     }
 }

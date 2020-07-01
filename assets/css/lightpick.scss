@@ -40,9 +40,17 @@
     @return $split-arr;
 }
 
+@font-face {
+    font-family: 'gothambook';
+    src: url(../fonts/gotham/gotham-book-webfont.woff2) format('woff2'),
+         url(../fonts/gotham/gotham-book-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 // SCSS Variables
 
-$lightpick-font: system-ui, Roboto, Helvetica, Arial, sans-serif !default;
+$lightpick-font: 'gothambook', sans-serif !default;
 $lightpick-line-height: 1.125em !default;
 $lightpick-border-radius: 4px !default;
 $lightpick-padding: 4px !default;
