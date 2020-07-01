@@ -902,9 +902,9 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: space-evenly;
+      -ms-flex-align: space-evenly;
+          align-items: space-evenly;
   text-align: center;
   padding-bottom: 1em;
   margin: 0 1.5em;
@@ -912,7 +912,9 @@ body {
 }
 
 .dash .dash-wrap {
-  padding: 0 1.2em;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 20%;
+          flex: 1 0 20%;
 }
 
 .dash .dash-wrap:not(:last-child) {

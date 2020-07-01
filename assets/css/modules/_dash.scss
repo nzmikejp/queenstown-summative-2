@@ -1,13 +1,13 @@
 
 .dash {
-    @include f-position(center, center);
+    @include f-position(center, space-evenly);
     text-align: center;
     padding-bottom: 1em;
     margin: 0 1.5em;
     border-bottom: thin $dark-color-90 solid;
 
     .dash-wrap {
-        padding: 0 1.2em;
+        flex: 1 0 20%;
     }
 
     .dash-wrap:not(:last-child) {

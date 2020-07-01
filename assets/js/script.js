@@ -179,7 +179,6 @@ $(function(){
 
 	//--- Section 2	
 
-	var iNumTotal = iNumNights + iNumRate
 
 	//--- Progress Bar
 	var progressTl1 = anime({
@@ -243,7 +242,7 @@ $(function(){
 
 			$('.select-hotel').addClass('active')
 
-		}else if(iNumPax == 2 && iNumNights >= 2 && iNumNights <= 3){
+		}else if(iNumPax == 2 && iNumNights == 2){
 
 			$('.select-hotel').addClass('active')
 			$('.select-house').addClass('active')
@@ -294,29 +293,58 @@ $(function(){
 	})
 
 	//--- Select your stay
-	var iNumRate = 0
+	var iNumTotal = 0
+	
 
 	$('[data-rate]').on('click',function(){
 
 		var iRate = $(this).data('rate')
+		iNumTotal = iRate * iNumNights
 
 		$('.dash-rate').find('.dash-amount').addClass('neon-el-blue')
+		$('.dash-total').find('.dash-amount').addClass('neon-el-blue')
 
 		$('.dash-rate').find('span').html(iRate)
-		$this = $('.dash-rate').find('span')
+		$('.dash-total').find('span').html(iNumTotal)
 
-		console.log($this)
+		var $thisRate = $('.dash-rate').find('span')
+		var $thisTotal = $('.dash-total').find('span')
 
+		
 
-		$({ Counter: 0 }).animate({ Counter: $this.text()}, {
-			duration: 2300,
-			easing: 'swing',
+		$({Counter: 0}).animate({Counter: $thisRate.text()}, {
+			duration: 250,
 			step: function () {
-				$this.text(Math.ceil(this.Counter));
+				$thisRate.text(Math.ceil(this.Counter));
+			}
+		})
+		
+		$({Counter: 0}).animate({Counter: $thisTotal.text()}, {
+			duration: 250,
+			step: function () {
+				$thisTotal.text(Math.ceil(this.Counter));
 			}
 		})
 
-		iNumRate = iRate
+		$('.section-2').addClass('animate__animated animate__backOutUp')
+		progressTl2.play()
+		
+		if(iRate == 157){
+			$('.section-3').addClass('animate__animated animate__backInUp')
+
+		}else if(iRate == 30){
+			$('.section-4').addClass('animate__animated animate__backInUp')
+
+			
+		}else if(iRate == 90){
+			$('.section-5').addClass('animate__animated animate__backInUp')
+
+			
+		}else if(iRate == 240){
+			$('.section-6').addClass('animate__animated animate__backInUp')
+
+		}
+
 
 	})
 	
