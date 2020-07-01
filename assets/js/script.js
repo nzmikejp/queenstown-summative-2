@@ -27,7 +27,7 @@ $(function(){
 	
 	var tl = anime.timeline({
 		easing: 'linear',
-		duration: 2000,
+		duration: 3000,
 		autoplay:false,
     })
     
@@ -56,28 +56,28 @@ $(function(){
 		opacity: [1,0],
 		translateX: [0, '-50%'],
 		scale: [2]
-    },'-=2000')
+    },'-=3000')
     
 	tl.add({
 		targets: '.layer-4',
 		opacity: [1,0],
 		translateX: [0, '50%'],
 		scale: [2]
-	},'-=2000')
+	},'-=3000')
 	
 	tl.add({
 		targets: '.layer-5',
 		opacity: [1,0],
 		translateX: [0, '-30%'],
 		scale: [4]
-	},'-=2000')
+	},'-=3000')
 	
 	tl.add({
 		targets: '.layer-6',
 		opacity: [1,0],
 		translateX: [0, '30%'],
 		scale: [4]
-	},'-=2000')
+	},'-=3000')
 
 	tl.add({
 		targets: '.layer-1',
@@ -88,20 +88,24 @@ $(function(){
 		targets: '.layer-0',
 		scale: [4],
 		translateY: ['-19.5vh'],
-		duration: 4000
-	},2000)
+	},1200)
 	
 	tl.add({
 		targets: '.second-content',
 		scale: [4,1],
 		opacity: [0,1],
+		duration: 1000,
+	},'-=1200')
+	
+	tl.add({
+		targets: '.footer',
+		translateY: ['100vh', '32vh'],
+		duration: 500,
 		complete: function(anim){
-			$('.footer').addClass('slide-u-50').one('transitionend',function(){
-				$('.footer-bg').addClass('neon-box')
-				$('.counter-wrapper .cta-round').addClass('neon-btn')
-			})
+			$('.footer-bg').addClass('neon-box')
+			$('.counter-wrapper .cta-round').addClass('neon-btn')
 		}
-	},'-=2000')
+	},'-=1000')
 	
 
 	//--- Pax Number Catch
@@ -164,6 +168,7 @@ $(function(){
 		})
 	})
 
+
 	
 
 	//--- main programe
@@ -209,7 +214,84 @@ $(function(){
 		autoplay: false
 	})
 
+
+
+	//--- Main programe
+	$('.footer .cta').on('click',function(){
+
+		if(iNumPax == 1 && iNumNights == 1){
+
+			$('.select-hotel').addClass('active')
+			$('.select-hostel').addClass('active')
+
+		}else if(iNumPax == 1 && iNumNights >= 2 && iNumNights <= 5){
+
+			$('.select-hotel').addClass('active')
+			$('.select-hostel').addClass('active')
+			$('.select-house').addClass('active')
+
+		}else if(iNumPax == 1 && iNumNights >= 6 && iNumNights <= 10){
+
+			$('.select-hostel').addClass('active')
+			$('.select-house').addClass('active')
+
+		}else if(iNumPax == 1 && iNumNights >= 11 && iNumNights <= 15){
+
+			$('.select-house').addClass('active')
+
+		}else if(iNumPax == 2 && iNumNights == 1){
+
+			$('.select-hotel').addClass('active')
+
+		}else if(iNumPax == 2 && iNumNights >= 2 && iNumNights <= 3){
+
+			$('.select-hotel').addClass('active')
+			$('.select-house').addClass('active')
+			
+		}else if(iNumPax == 2 && iNumNights >= 3 && iNumNights <= 5){
+
+			$('.select-hotel').addClass('active')
+			$('.select-house').addClass('active')
+			$('.select-motel').addClass('active')
+			
+		}else if(iNumPax == 2 && iNumNights >= 6 && iNumNights <= 10){
+
+			$('.select-house').addClass('active')
+			$('.select-motel').addClass('active')
+			
+		}else if(iNumPax == 2 && iNumNights >= 11 && iNumNights <= 15){
+
+			$('.select-house').addClass('active')
+
+		}else if(iNumPax >= 3 && iNumNights == 2){
+
+			$('.select-house').addClass('active')
+
+		}else if(iNumPax >= 3 && iNumNights >= 3 && iNumNights <= 10){
+
+			$('.select-house').addClass('active')
+			$('.select-motel').addClass('active')
+
+		}else if(iNumPax >= 3 && iNumNights >= 11 && iNumNights <= 15){
+
+			$('.select-house').addClass('active')
+
+		}
+
+		$('.footer').removeClass('slide').addClass('slide-d-100').one('transitionend',function(){
+
+			$('.section-1').addClass('animate__animated animate__backOutUp')
+			$('.section-2').addClass('animate__animated animate__backInUp')
+			$('.header').addClass('animate__animated animate__slideInDown').one('animationend',function(){
+
+				$('.header-bg').addClass('neon-box')
+				progressTl1.play()
 	
+			})
+
+		})
+
+	})
 
 	//--- Select your stay
 	var iNumRate = 0
@@ -221,18 +303,20 @@ $(function(){
 		$('.dash-rate').find('.dash-amount').addClass('neon-el-blue')
 
 		$('.dash-rate').find('span').html(iRate)
+		$this = $('.dash-rate').find('span')
+
+		console.log($this)
+
+
+		$({ Counter: 0 }).animate({ Counter: $this.text()}, {
+			duration: 2300,
+			easing: 'swing',
+			step: function () {
+				$this.text(Math.ceil(this.Counter));
+			}
+		})
+
 		iNumRate = iRate
-
-	})
-
-
-	//--- Main programe
-
-	
-
-	$('.footer .cta').on('click',function(){
-
-		progressTl1.play()
 
 	})
 	

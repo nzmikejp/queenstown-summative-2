@@ -74,12 +74,12 @@
 
 
 //--- transition slides
-.slide{
+.slide {
     transform: translateY(0)!important;
 }
 
-.slide-u-50 {
-    transform: translateY(32vh)!important;
+.slide-d-100 {
+    transform: translateY(100vh)!important;
 }
 
 .slide-u-100 {
@@ -90,6 +90,7 @@
 
 body {
     font-family: $font-primary-book;
+    background-color: $dark-color-100;
 }
 
 .wrapper {
