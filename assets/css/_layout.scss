@@ -74,16 +74,12 @@
 
 
 //--- transition slides
-.slide-d-0 {
+.slide{
     transform: translateY(0)!important;
 }
 
 .slide-u-50 {
-    transform: translateY(30vh)!important;
-}
-
-.slide-u-0 {
-    transform: translateY(0)!important;
+    transform: translateY(32vh)!important;
 }
 
 .slide-u-100 {
@@ -110,7 +106,7 @@ body {
     left: 0;
     background-color: $dark-color-100;
     border-radius: $container-radius-bottom;
-    // transform: translateY(-120%);
+    transform: translateY(-120%);
     transition: ease 0.5s all;
     z-index: 90;
 
@@ -204,9 +200,9 @@ body {
     height: 60vh;
     bottom: 0;
     left: 0;
+    transform: translateY(100vh);
     background-color: $dark-color-100;
     border-radius: $container-radius-top;
-    transform: translateY(100vh);
     transition: ease 0.5s all;
     z-index: 90;
 

@@ -26,93 +26,73 @@ $(function(){
 
 	
 	var tl = anime.timeline({
+		easing: 'linear',
+		duration: 2000,
 		autoplay:false,
     })
     
 	tl.add({
-
 		targets: '.first-content-logo',
-		duration: 2000,
-		easing:'easeInOutElastic',
 		opacity: [1 , 0],
-		translateY: [0, '10vh']
-
+		duration: 1500,
     })
     
 	tl.add({
-
 		targets: '.first-content .cta',
-		duration: 2000,
-		easing:'easeInOutElastic',
 		opacity: [1 , 0],
-		translateY: [0, '10vh']
+		duration: 1500,
 
-    },400)
+    },0)
     
 	tl.add({
 		targets: '.layer-2',
-		easing: 'easeInOutCubic',
-		duration: 5000,
 		opacity: [1,0],
-		translateX: [0, '150%'],
+		translateX: [0, '50%'],
 		scale: [2]
-    },1500)
+    })
 	
 	tl.add({
 		targets: '.layer-3',
-		easing: 'easeInOutCubic',
-		duration: 6000,
 		opacity: [1,0],
-		translateX: [0, '-150%'],
+		translateX: [0, '-50%'],
 		scale: [2]
-    },1500)
+    },'-=2000')
     
 	tl.add({
 		targets: '.layer-4',
-		easing: 'easeInOutCubic',
-		duration: 7000,
 		opacity: [1,0],
-		translateX: [0, '150%'],
+		translateX: [0, '50%'],
 		scale: [2]
-	},1500)
+	},'-=2000')
 	
 	tl.add({
 		targets: '.layer-5',
-		easing: 'easeInOutCubic',
-		duration: 8000,
 		opacity: [1,0],
-		translateX: [0, '-150%'],
+		translateX: [0, '-30%'],
 		scale: [4]
-	},1500)
+	},'-=2000')
 	
 	tl.add({
 		targets: '.layer-6',
-		easing: 'easeInOutCubic',
-		duration: 6000,
 		opacity: [1,0],
-		translateX: [0, '150%'],
+		translateX: [0, '30%'],
 		scale: [4]
-	},1500)
+	},'-=2000')
 
 	tl.add({
 		targets: '.layer-1',
-		easing: 'linear',
-		duration: 18000,
-		translateY: [0, '100%']
-	},1500)
+		translateY: ['36%']
+	},1600)
 
 	tl.add({
 		targets: '.layer-0',
-		easing: 'linear',
-		duration: 6000,
 		scale: [4],
-		translateY: [0, '-19.5vh'],
-	},1000)
+		translateY: ['-19.5vh'],
+		duration: 4000
+	},2000)
 	
 	tl.add({
 		targets: '.second-content',
-		easing: 'easeInOutCubic',
-		duration: 2500,
 		scale: [4,1],
 		opacity: [0,1],
 		complete: function(anim){
@@ -121,16 +101,8 @@ $(function(){
 				$('.counter-wrapper .cta-round').addClass('neon-btn')
 			})
 		}
-	},4800)    
-
-
-	//--- main programe
-
-	$('.first-content .cta').on('click',function(){
-
-		tl.play()
-		
-	})
+	},'-=2000')
+	
 
 	//--- Pax Number Catch
 	var iNumPax = 0
@@ -169,8 +141,7 @@ $(function(){
 	var iNumNights = 0
 
 	$('#unit-nights').on('focus',function(){
-
-		$('.footer').addClass('slide-u-0').one('transitionend',function(){
+		$('.footer').addClass('slide').one('transitionend',function(){
 
 			var lightpick = new Lightpick({
 		
@@ -188,11 +159,16 @@ $(function(){
 						
 					}
 				}
-			
 			})
 
-		})	
+		})
+	})
 
+	
+
+	//--- main programe
+	$('.first-content .cta').on('click',function(){
+		tl.play()
 	})
 
 
@@ -310,7 +286,7 @@ $(function(){
 
 					oCardBg.classList.remove('visa')
 					oCardBg.classList.add('mc')
-					
+
 				}
 	
 				this.nextElementSibling.className = 'message-sucess'
