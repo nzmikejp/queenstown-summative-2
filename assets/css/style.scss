@@ -291,6 +291,12 @@
 
     .cta {
         margin: 2.5em auto;
+        pointer-events: initial;
+    }
+
+    .cta.deactive {
+        opacity: 0.2;
+        pointer-events: none;
     }
 }
 
@@ -312,6 +318,12 @@
 
     .cta {
         margin: 2.5em auto;
+        pointer-events: initial;
+    }
+
+    .cta.deactive {
+        opacity: 0.5;
+        pointer-events: none;
     }
 }
 
@@ -333,6 +345,12 @@
 
     .cta {
         margin: 2.5em auto;
+        pointer-events: initial;
+    }
+
+    .cta.deactive {
+        opacity: 0.2;
+        pointer-events: none;
     }
 }
 
@@ -354,6 +372,12 @@
 
     .cta {
         margin: 2.5em auto;
+        pointer-events: initial;
+    }
+
+    .cta.deactive {
+        opacity: 0.2;
+        pointer-events: none;
     }
 }
 
@@ -462,6 +486,7 @@
     .cta {
         margin: 2.5em auto;
     }
+
 }
 
 .section-8 {

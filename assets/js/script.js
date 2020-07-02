@@ -1,9 +1,17 @@
 
+
 $(function(){
 
-	//--- menu button effect
-	var isOpen = false
 
+	var iNumPax = 0
+	var iNumNights = 0
+	var iRateNight = 0
+	var iNumTotal = 0
+	var iCounterTotal = 0
+	var fExtraTotal = 0
+	var isOpen = false
+	
+	//--- menu button effect
 	$('.menu-btn').on('click',function(){
 
 		if(isOpen == false){
@@ -23,8 +31,6 @@ $(function(){
 
 
 	//--- Section 1
-
-	
 	var tl = anime.timeline({
 		easing: 'linear',
 		duration: 3000,
@@ -109,8 +115,6 @@ $(function(){
 	
 
 	//--- Pax Number Catch
-	var iNumPax = 0
-
 	$('.less').on('click',function(){
 
 		var iNum = parseInt($(this).next().val())
@@ -142,8 +146,6 @@ $(function(){
 	})
 
 	//--- Lightpick
-	var iNumNights = 0
-
 	$('#unit-nights').on('focus',function(){
 		$('.footer').addClass('slide').one('transitionend',function(){
 
@@ -153,32 +155,39 @@ $(function(){
 				singleDate: false,
 				numberOfMonths: 1,
 				minDate: moment(),
-				maxDate: moment().add(365, 'day'),
+				// maxDate: moment().add(365, 'day'),
 				onSelect: function(start, end){
+
+					if(end == null){
+				
+						this.reloadOptions({
+							maxDate: start.add(15,'day')
+						})
+						
+					}
 		
 					if(end != null){
 						var iDays = end.diff(start, 'days')
 						$('.dash-nights').find('.dash-amount').html(iDays)
 						iNumNights = iDays
+
+						this.reloadOptions({
+							maxDate: start.add(15,'day')
+						})
+
+						
 						
 					}
 				}
 			})
+
+			lightpick.show()
 
 		})
 	})
 
 
 	
-
-	//--- main programe
-	$('.first-content .cta').on('click',function(){
-		tl.play()
-	})
-
-
-	//--- Section 2	
-
 
 	//--- Progress Bar
 	var progressTl1 = anime({
@@ -214,8 +223,13 @@ $(function(){
 	})
 
 
+	
 
-	//--- Main programe
+	//--- main programe
+	$('.first-content .cta').on('click',function(){
+		tl.play()
+	})
+
 	$('.footer .cta').on('click',function(){
 
 		if(iNumPax == 1 && iNumNights == 1){
@@ -293,9 +307,6 @@ $(function(){
 	})
 
 	//--- Select your stay
-	var iNumTotal = 0
-	
-
 	$('[data-rate]').on('click',function(){
 
 		var iRate = $(this).data('rate')
@@ -311,18 +322,18 @@ $(function(){
 		var thisTotal = $('.dash-total').find('span')
 
 		
-
+		
 		$({Counter: 0}).animate({Counter: thisRate.text()}, {
-			duration: 250,
+			duration: 2000,
 			step: function () {
-				thisRate.text(Math.ceil(this.Counter));
+				thisRate.text(Math.ceil(this.Counter).toFixed(0));
 			}
 		})
 		
 		$({Counter: 0}).animate({Counter: thisTotal.text()}, {
-			duration: 250,
+			duration: 2000,
 			step: function () {
-				thisTotal.text(Math.ceil(this.Counter));
+				thisTotal.text(Math.ceil(this.Counter).toFixed(0));
 			}
 		})
 
@@ -345,9 +356,92 @@ $(function(){
 
 		}
 
+		iRateNight = iRate
+
 
 	})
 	
+	//--- Check selected
+	$('.card [type=radio]').on('click',function(){
+		$('.section-3 .cta').addClass('neon-btn').removeClass('deactive')
+		$('.section-4 .cta').addClass('neon-btn').removeClass('deactive')
+		$('.section-5 .cta').addClass('neon-btn').removeClass('deactive')
+		$('.section-6 .cta').addClass('neon-btn').removeClass('deactive')
+	})
+
+	//--- Section Review
+	$('.section-3 .cta').on('click',function(){
+
+		$('.section-3').addClass('animate__animated animate__backOutUp')
+		$('.section-7').addClass('animate__animated animate__backInUp')
+		progressTl3.play()
+
+	})
+	
+	$('.section-4 .cta').on('click',function(){
+
+		$('.section-4').addClass('animate__animated animate__backOutUp')
+		$('.section-7').addClass('animate__animated animate__backInUp')
+		progressTl3.play()
+
+	})
+	
+	$('.section-5 .cta').on('click',function(){
+
+		$('.section-5').addClass('animate__animated animate__backOutUp')
+		$('.section-7').addClass('animate__animated animate__backInUp')
+		progressTl3.play()
+
+	})
+	
+	$('.section-6 .cta').on('click',function(){
+
+		$('.section-6').addClass('animate__animated animate__backOutUp')
+		$('.section-7').addClass('animate__animated animate__backInUp')
+		progressTl3.play()
+
+	})
+
+	console.log(iCounterTotal)
+
+	//--- Upgrade you stay
+	$('.section-7 [type=checkbox]').on('change',function(){
+
+		var fExtraCost = parseFloat($(this).val())
+
+		var exstingTotal = iNumTotal
+
+		if(this.id == 'breakfast'){
+
+			if(this.checked){
+				iNumTotal += fExtraCost*iNumPax*iNumNights
+			}else{
+				iNumTotal -= fExtraCost*iNumPax*iNumNights
+			}
+
+		}else{
+
+			if(this.checked){
+				iNumTotal += fExtraCost*iNumPax
+			}else{
+				iNumTotal -= fExtraCost*iNumPax
+			}
+
+		}
+
+
+		$('.dash-total').find('span').html(iNumTotal)
+
+		var thisTotal = $('.dash-total').find('span')
+		
+		$({Counter: exstingTotal}).animate({Counter: thisTotal.text()}, {
+			duration: 2000,
+			step: function () {
+				thisTotal.text(Math.ceil(this.Counter).toFixed(0));
+			}
+		})
+	})
+
 
 	//--- Credit Card
 	function checkCardName(){
