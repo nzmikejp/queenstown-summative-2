@@ -435,7 +435,7 @@ $(function(){
 		var thisTotal = $('.dash-total').find('span')
 		
 		$({Counter: exstingTotal}).animate({Counter: thisTotal.text()}, {
-			duration: 2000,
+			duration: 3000,
 			step: function () {
 				thisTotal.text(Math.ceil(this.Counter).toFixed(0));
 			}
