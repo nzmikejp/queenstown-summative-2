@@ -476,7 +476,6 @@ $(function(){
 		oCardNumber.innerHTML = this.value
 	}
 
-
 	var oName = document.querySelector('#c-name')
 	oName.addEventListener('blur', checkCardName)
 
