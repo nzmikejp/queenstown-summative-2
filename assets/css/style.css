@@ -380,14 +380,21 @@ body {
   padding: 0 1.7em;
 }
 
-.card label .card-content h3 {
+.card label .card-content .headline {
+  display: block;
   font-size: 0.875em;
+  font-family: "gothambold", sans-serif;
   color: #fff;
   margin: 0;
 }
 
-.card label .card-content p {
+.card label .card-content .content {
+  display: block;
   font-size: 0.58em;
+  font-family: "gothambook", sans-serif;
+  color: #9191B5;
+  line-height: 1.2;
+  padding: 1em 0;
 }
 
 .card label .check {

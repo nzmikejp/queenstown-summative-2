@@ -32,14 +32,21 @@
             flex: 1 0 40%;
             padding: 0 1.7em;
 
-            h3 {
+            .headline {
+                display: block;
                 font-size: 0.875em;
+                font-family: $font-primary-bold;
                 color: $light-color-100;
                 margin: 0;
             }
 
-            p {
+            .content {
+                display: block;
                 font-size: 0.58em;
+                font-family: $font-primary-book;
+                color: $mid-blue-gray;
+                line-height: 1.2;
+                padding: 1em 0;
             }
         }
         
