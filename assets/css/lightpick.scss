@@ -98,6 +98,11 @@ $lightpick-action-border-radius: 5px !default;
 $lightpick-action-font-size: 12px !default;
 $lightpick-action-close-font-size: 18px !default;
 
+//reset
+select{
+    color: $lightpick-action-reset-color;
+}
+
 // Styles
 
 .lightpick {

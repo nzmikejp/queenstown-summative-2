@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+select {
+  color: #fff;
+}
+
 .lightpick {
   position: absolute;
   z-index: 99999;

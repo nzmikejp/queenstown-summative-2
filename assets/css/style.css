@@ -1295,6 +1295,12 @@ body {
 
 .section-3 .cta {
   margin: 2.5em auto;
+  pointer-events: initial;
+}
+
+.section-3 .cta.deactive {
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .section-4 {
@@ -1316,6 +1322,12 @@ body {
 
 .section-4 .cta {
   margin: 2.5em auto;
+  pointer-events: initial;
+}
+
+.section-4 .cta.deactive {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .section-5 {
@@ -1337,6 +1349,12 @@ body {
 
 .section-5 .cta {
   margin: 2.5em auto;
+  pointer-events: initial;
+}
+
+.section-5 .cta.deactive {
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .section-6 {
@@ -1358,6 +1376,12 @@ body {
 
 .section-6 .cta {
   margin: 2.5em auto;
+  pointer-events: initial;
+}
+
+.section-6 .cta.deactive {
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .section-7 {
