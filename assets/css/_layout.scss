@@ -222,6 +222,12 @@ body {
     }
 
     .cta {
-        margin: 5em auto;
+        margin: 2.5em auto;
+        pointer-events: initial;
+    }
+
+    .cta.deactive {
+        opacity: 0.2;
+        pointer-events: none;
     }
 }

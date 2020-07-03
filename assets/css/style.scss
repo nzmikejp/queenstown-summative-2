@@ -277,18 +277,6 @@
     overflow-y: scroll;
     padding-top: 12em;
 
-    .image-1 {
-        background-image: url(/assets/images/hotel-1.jpg);
-    }
-    
-    .image-2 {
-        background-image: url(/assets/images/hotel-2.jpg);
-    }
-    
-    .image-3 {
-        background-image: url(/assets/images/hotel-3.jpg);
-    }
-
     .cta {
         margin: 2.5em auto;
         pointer-events: initial;
@@ -303,18 +291,6 @@
 .section-4 {
     overflow-y: scroll;
     padding-top: 12em;
-
-    .image-1 {
-        background-image: url(/assets/images/hostel-1.jpg);
-    }
-
-    .image-2 {
-        background-image: url(/assets/images/hostel-2.jpg);
-    }
-    
-    .image-3 {
-        background-image: url(/assets/images/hostel-3.jpg);
-    }
 
     .cta {
         margin: 2.5em auto;
@@ -331,18 +307,6 @@
     overflow-y: scroll;
     padding-top: 12em;
 
-    .image-1 {
-        background-image: url(/assets/images/motel-1.jpg);
-    }
-
-    .image-2 {
-        background-image: url(/assets/images/motel-2.jpg);
-    }
-    
-    .image-3 {
-        background-image: url(/assets/images/motel-3.jpg);
-    }
-
     .cta {
         margin: 2.5em auto;
         pointer-events: initial;
@@ -358,18 +322,6 @@
     overflow-y: scroll;
     padding-top: 12em;
 
-    .image-1 {
-        background-image: url(/assets/images/house-1.jpg);
-    }
-
-    .image-2 {
-        background-image: url(/assets/images/house-2.jpg);
-    }
-    
-    .image-3 {
-        background-image: url(/assets/images/house-3.jpg);
-    }
-
     .cta {
         margin: 2.5em auto;
         pointer-events: initial;
@@ -383,11 +335,92 @@
 
 .section-7 {
     overflow-y: scroll;
-    padding-top: 12em;
+    padding-top: 13em;
 
     .select-clone {
-        height: 12em;
-        border: thin $dark-color-80 solid;
+        border-bottom: thin $dark-color-80 solid;
+        padding: 1em 0;
+
+        label {
+            display: flex;
+            justify-content: flex-start;
+
+            .card-image {
+            flex: 0 0 40%;
+            height: 8em;
+            @include bg-images(cover, center);
+            
+            img {
+                display: block;
+                width: 100%;
+                border-radius: $image-radius-right;
+            }
+        }
+
+        .card-content {
+            flex: 1 0 40%;
+            padding: 0 1.7em;
+
+            .headline {
+                display: block;
+                font-size: 0.875em;
+                font-family: $font-primary-bold;
+                color: $light-color-100;
+                margin: 0;
+            }
+
+            .content {
+                display: block;
+                font-size: 0.58em;
+                font-family: $font-primary-book;
+                color: $mid-blue-gray;
+                line-height: 1.2;
+                padding: 1em 0;
+            }
+        }
+        
+        .check {
+            display: none;
+        }
+            .card-image {
+                flex: 0 0 40%;
+                height: 8em;
+                @include bg-images(cover, center);
+                
+                img {
+                    display: block;
+                    width: 100%;
+                    border-radius: $image-radius-right;
+                }
+            }
+    
+            .card-content {
+                flex: 1 0 40%;
+                padding: 0 1.7em;
+    
+                .headline {
+                    display: block;
+                    font-size: 0.875em;
+                    font-family: $font-primary-bold;
+                    color: $light-color-100;
+                    margin: 0;
+                }
+    
+                .content {
+                    display: block;
+                    font-size: 0.58em;
+                    font-family: $font-primary-book;
+                    color: $mid-blue-gray;
+                    line-height: 1.2;
+                    padding: 1em 0;
+                }
+            }
+            
+            .check {
+                display: none;
+            }
+        }
+
     }
     
     h2 {

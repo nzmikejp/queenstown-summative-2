@@ -3,12 +3,11 @@
 $(function(){
 
 
-	var iNumPax = 0
+	var iNumPax = 1
 	var iNumNights = 0
-	var iRateNight = 0
 	var iNumTotal = 0
-	var iCounterTotal = 0
-	var fExtraTotal = 0
+	var iRateNight = 0
+	var iCurrent = 1
 	var isOpen = false
 	
 	//--- menu button effect
@@ -29,12 +28,82 @@ $(function(){
 
 	})
 
+	$('.back-btn').on('click',function(){
 
-	//--- Section 1
+		if(iCurrent == 2){
+			$('.header-bg').removeClass('neon-box')
+			progressTl5.play()
+			
+			$('.section-1').removeClass('animate__animated animate__backOutUp').addClass('animate__animated animate__backInDown')
+			$('.section-2').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
+			$('.header').removeClass('animate__animated animate__slideInDown').addClass('animate__animated animate__slideOutUp')
+
+			$('.section-2').one('animationend',function(){
+
+				$('.footer').addClass('slide').removeClass('slide-d-100')
+				$('.section-1').removeClass('animate__animated animate__backInDown')
+				$('.section-2').removeClass('animate__animated animate__backOutDown')
+				$('.header').removeClass('animate__animated animate__slideOutUp')
+
+			})
+
+			iCurrent--
+
+		}else if(iCurrent == 3){
+
+			progressTl6.play()
+			console.log(iRateNight)
+			$('.section-2').removeClass('animate__animated animate__backOutUp').addClass('animate__animated animate__backInDown')
+			
+			if(iRateNight == 157){
+				$('.section-3').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
+				
+			}else if(iRateNight == 30){
+				$('.section-4').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
+				
+				
+			}else if(iRateNight == 90){
+				$('.section-6').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
+				
+				
+			}else if(iRateNight == 240){
+				$('.section-6').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
+				
+			}
+			
+			$('.section-2').one('animationend',function(){
+
+				$('.section-2').removeClass('animate__animated animate__backInDown')
+				$('.section-3').removeClass('animate__animated animate__backOutDown')
+				$('.section-4').removeClass('animate__animated animate__backOutDown')
+				$('.section-5').removeClass('animate__animated animate__backOutDown')
+				$('.section-6').removeClass('animate__animated animate__backOutDown')
+				
+			})
+
+			iCurrent--
+
+		}
+
+	})
+
+
+	
+
+	var hasFooterAnimPlayed = false
+
 	var tl = anime.timeline({
 		easing: 'linear',
 		duration: 3000,
-		autoplay:false,
+		autoplay: false,
+		update: function(anim) {
+
+			if(anim.progress > 80 && hasFooterAnimPlayed == false){
+				console.log(anim.progress)
+				footer.play()
+				hasFooterAnimPlayed = true
+			}
+		}
     })
     
 	tl.add({
@@ -102,16 +171,7 @@ $(function(){
 		opacity: [0,1],
 		duration: 1000,
 	},'-=1200')
-	
-	tl.add({
-		targets: '.footer',
-		translateY: ['100vh', '32vh'],
-		duration: 500,
-		complete: function(anim){
-			$('.footer-bg').addClass('neon-box')
-			$('.counter-wrapper .cta-round').addClass('neon-btn')
-		}
-	},'-=1000')
+
 	
 
 	//--- Pax Number Catch
@@ -120,8 +180,8 @@ $(function(){
 		var iNum = parseInt($(this).next().val())
 		iNum--
 
-		if(iNum < 0){
-			iNum = 0
+		if(iNum < 1){
+			iNum = 1
 		}
 
 		$(this).next().val(iNum)
@@ -155,7 +215,6 @@ $(function(){
 				singleDate: false,
 				numberOfMonths: 1,
 				minDate: moment(),
-				// maxDate: moment().add(365, 'day'),
 				onSelect: function(start, end){
 
 					if(end == null){
@@ -163,7 +222,8 @@ $(function(){
 						this.reloadOptions({
 							maxDate: start.add(15,'day')
 						})
-						
+
+						$('.footer .cta').removeClass('neon-btn').addClass('deactive')
 					}
 		
 					if(end != null){
@@ -175,8 +235,8 @@ $(function(){
 							maxDate: start.add(15,'day')
 						})
 
-						
-						
+						$('.footer .cta').addClass('neon-btn').removeClass('deactive')
+							
 					}
 				}
 			})
@@ -186,7 +246,17 @@ $(function(){
 		})
 	})
 
-
+	//--- Footer Animation
+	var footer = anime({
+		targets: '.footer',
+		translateY: ['100vh', '32vh'],
+		duration: 500,
+		complete: function(anim){
+			$('.footer-bg').addClass('neon-box')
+			$('.counter-wrapper .cta-round').addClass('neon-btn')
+		},
+		autoplay: false
+	})
 	
 
 	//--- Progress Bar
@@ -222,6 +292,24 @@ $(function(){
 		autoplay: false
 	})
 
+	var progressTl5 = anime({
+		targets: '.progress',
+		easing: 'easeOutQuad',
+		duration: 1000,
+		width: [0],
+		autoplay: false
+	})
+
+	var progressTl6 = anime({
+		targets: '.progress',
+		easing: 'linear',
+		duration: 1000,
+		width: ['25%'],
+		autoplay: false
+	})
+
+
+
 
 	
 
@@ -229,6 +317,7 @@ $(function(){
 	$('.first-content .cta').on('click',function(){
 		tl.play()
 	})
+
 
 	$('.footer .cta').on('click',function(){
 
@@ -304,6 +393,8 @@ $(function(){
 
 		})
 
+		iCurrent++
+
 	})
 
 	//--- Select your stay
@@ -358,6 +449,8 @@ $(function(){
 
 		iRateNight = iRate
 
+		iCurrent++
+
 
 	})
 	
@@ -374,7 +467,9 @@ $(function(){
 
 		$('.section-3').addClass('animate__animated animate__backOutUp')
 		$('.section-7').addClass('animate__animated animate__backInUp')
+
 		progressTl3.play()
+		iCurrent++
 
 	})
 	
@@ -382,7 +477,9 @@ $(function(){
 
 		$('.section-4').addClass('animate__animated animate__backOutUp')
 		$('.section-7').addClass('animate__animated animate__backInUp')
+
 		progressTl3.play()
+		iCurrent++
 
 	})
 	
@@ -390,7 +487,9 @@ $(function(){
 
 		$('.section-5').addClass('animate__animated animate__backOutUp')
 		$('.section-7').addClass('animate__animated animate__backInUp')
+
 		progressTl3.play()
+		iCurrent++
 
 	})
 	
@@ -398,11 +497,19 @@ $(function(){
 
 		$('.section-6').addClass('animate__animated animate__backOutUp')
 		$('.section-7').addClass('animate__animated animate__backInUp')
+
 		progressTl3.play()
+		iCurrent++
 
 	})
 
-	console.log(iCounterTotal)
+	$('.section-3 .cta,.section-4 .cta,.section-5 .cta,.section-6 .cta').on('click',function(){
+
+		$('.select-clone').empty()
+		$(this).parent().find(':checked').next().clone().appendTo('.select-clone')
+
+	})
+
 
 	//--- Upgrade you stay
 	$('.section-7 [type=checkbox]').on('change',function(){
@@ -440,6 +547,18 @@ $(function(){
 				thisTotal.text(Math.ceil(this.Counter).toFixed(0));
 			}
 		})
+	})
+
+	$('.section-7 .cta').on('click',function(){
+
+		$('.section-7').addClass('animate__animated animate__backOutUp')
+		$('.section-8').addClass('animate__animated animate__backInUp')
+
+		progressTl4.play()
+		iCurrent++
+
+	
+
 	})
 
 

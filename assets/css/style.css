@@ -322,7 +322,13 @@ body {
 }
 
 .footer .cta {
-  margin: 5em auto;
+  margin: 2.5em auto;
+  pointer-events: initial;
+}
+
+.footer .cta.deactive {
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .back-btn {
@@ -370,6 +376,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.card label .card-image img {
+  display: block;
+  width: 100%;
   border-radius: 0 1.125em 1.125em 0;
 }
 
@@ -1288,18 +1299,6 @@ body {
   padding-top: 12em;
 }
 
-.section-3 .image-1 {
-  background-image: url(/assets/images/hotel-1.jpg);
-}
-
-.section-3 .image-2 {
-  background-image: url(/assets/images/hotel-2.jpg);
-}
-
-.section-3 .image-3 {
-  background-image: url(/assets/images/hotel-3.jpg);
-}
-
 .section-3 .cta {
   margin: 2.5em auto;
   pointer-events: initial;
@@ -1313,18 +1312,6 @@ body {
 .section-4 {
   overflow-y: scroll;
   padding-top: 12em;
-}
-
-.section-4 .image-1 {
-  background-image: url(/assets/images/hostel-1.jpg);
-}
-
-.section-4 .image-2 {
-  background-image: url(/assets/images/hostel-2.jpg);
-}
-
-.section-4 .image-3 {
-  background-image: url(/assets/images/hostel-3.jpg);
 }
 
 .section-4 .cta {
@@ -1342,18 +1329,6 @@ body {
   padding-top: 12em;
 }
 
-.section-5 .image-1 {
-  background-image: url(/assets/images/motel-1.jpg);
-}
-
-.section-5 .image-2 {
-  background-image: url(/assets/images/motel-2.jpg);
-}
-
-.section-5 .image-3 {
-  background-image: url(/assets/images/motel-3.jpg);
-}
-
 .section-5 .cta {
   margin: 2.5em auto;
   pointer-events: initial;
@@ -1369,18 +1344,6 @@ body {
   padding-top: 12em;
 }
 
-.section-6 .image-1 {
-  background-image: url(/assets/images/house-1.jpg);
-}
-
-.section-6 .image-2 {
-  background-image: url(/assets/images/house-2.jpg);
-}
-
-.section-6 .image-3 {
-  background-image: url(/assets/images/house-3.jpg);
-}
-
 .section-6 .cta {
   margin: 2.5em auto;
   pointer-events: initial;
@@ -1393,12 +1356,109 @@ body {
 
 .section-7 {
   overflow-y: scroll;
-  padding-top: 12em;
+  padding-top: 13em;
 }
 
 .section-7 .select-clone {
-  height: 12em;
-  border: thin #404359 solid;
+  border-bottom: thin #404359 solid;
+  padding: 1em 0;
+}
+
+.section-7 .select-clone label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.section-7 .select-clone label .card-image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+  height: 8em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.section-7 .select-clone label .card-image img {
+  display: block;
+  width: 100%;
+  border-radius: 0 1.125em 1.125em 0;
+}
+
+.section-7 .select-clone label .card-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 40%;
+          flex: 1 0 40%;
+  padding: 0 1.7em;
+}
+
+.section-7 .select-clone label .card-content .headline {
+  display: block;
+  font-size: 0.875em;
+  font-family: "gothambold", sans-serif;
+  color: #fff;
+  margin: 0;
+}
+
+.section-7 .select-clone label .card-content .content {
+  display: block;
+  font-size: 0.58em;
+  font-family: "gothambook", sans-serif;
+  color: #9191B5;
+  line-height: 1.2;
+  padding: 1em 0;
+}
+
+.section-7 .select-clone label .check {
+  display: none;
+}
+
+.section-7 .select-clone label .card-image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+  height: 8em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.section-7 .select-clone label .card-image img {
+  display: block;
+  width: 100%;
+  border-radius: 0 1.125em 1.125em 0;
+}
+
+.section-7 .select-clone label .card-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 40%;
+          flex: 1 0 40%;
+  padding: 0 1.7em;
+}
+
+.section-7 .select-clone label .card-content .headline {
+  display: block;
+  font-size: 0.875em;
+  font-family: "gothambold", sans-serif;
+  color: #fff;
+  margin: 0;
+}
+
+.section-7 .select-clone label .card-content .content {
+  display: block;
+  font-size: 0.58em;
+  font-family: "gothambook", sans-serif;
+  color: #9191B5;
+  line-height: 1.2;
+  padding: 1em 0;
+}
+
+.section-7 .select-clone label .check {
+  display: none;
 }
 
 .section-7 h2 {
