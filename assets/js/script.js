@@ -7,10 +7,14 @@ $(function(){
 	var iNumNights = 0
 	var iNumTotal = 0
 	var iRateNight = 0
+	var fExtraCost = 0
 	var iCurrent = 1
-	var isOpen = false
 	
-	//--- menu button effect
+	
+	
+	//--- Menu Button
+	var isOpen = false
+
 	$('.menu-btn').on('click',function(){
 
 		if(isOpen == false){
@@ -28,8 +32,11 @@ $(function(){
 
 	})
 
+
+	//--- Main Back Button Program
 	$('.back-btn').on('click',function(){
 
+		//--- Back to Section 1
 		if(iCurrent == 2){
 			$('.header-bg').removeClass('neon-box')
 			progressTl5.play()
@@ -37,15 +44,26 @@ $(function(){
 			$('.section-1').addClass('animate__backInDown').removeClass('animate__backOutUp')
 			$('.section-2').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown')
 			$('.header').removeClass('animate__slideInDown').addClass('animate__slideOutUp')
+			$('.select').removeClass('active')
 
 			$('.section-2').one('animationend',function(){
 
 				$('.footer').addClass('slide').removeClass('slide-d-100')
+
+				$('.dash-rate').find('.dash-amount').removeClass('neon-el-blue')
+				$('.dash-total').find('.dash-amount').removeClass('neon-el-blue')
+
+				$('.dash-rate').find('span').html(0)
+				$('.dash-total').find('span').html(0)
+
+				iNumTotal = 0
+				iRateNight = 0
 		
 			})
 
 			iCurrent--
-
+			
+		//--- Back to Section 2	
 		}else if(iCurrent == 3){
 
 			progressTl6.play()
@@ -74,7 +92,7 @@ $(function(){
 
 			iCurrent--
 
-
+		//--- Back to Section 3
 		}else if(iCurrent == 4){
 
 			progressTl7.play()
@@ -97,8 +115,34 @@ $(function(){
 				$('.section-7').removeClass('animate__backOutDown')
 			})
 
+
+			//--- Resetting Upgrades
+			$('.section-7 [type=checkbox]').prop( "checked", false)
+
+			var exstingTotal = iNumTotal
+
+			if(this.id == 'breakfast'){
+				iNumTotal -= fExtraCost*iNumPax*iNumNights
+
+			}else{
+				iNumTotal -= fExtraCost*iNumPax
+
+			}
+
+			$('.dash-total').find('span').html(iNumTotal)
+
+			var thisTotal = $('.dash-total').find('span')
+			
+			$({Counter: exstingTotal}).animate({Counter: thisTotal.text()}, {
+				duration: 3000,
+				step: function () {
+					thisTotal.text(Math.ceil(this.Counter).toFixed(0));
+				}
+			})
+
 			iCurrent--
 
+		//--- Back to Section 4	
 		}else if(iCurrent == 5){
 
 			$('.section-7').addClass('animate__backInDown').removeClass('animate__backOutUp')
@@ -114,7 +158,7 @@ $(function(){
 
 
 	
-
+	//--- Leadin Animation for Section 1
 	var hasFooterAnimPlayed = false
 
 	var tl = anime.timeline({
@@ -283,7 +327,7 @@ $(function(){
 	})
 	
 
-	//--- Progress Bar
+	//--- Progress Bar Animation
 	var progressTl1 = anime({
 		targets: '.progress',
 		easing: 'easeOutQuad',
@@ -350,7 +394,7 @@ $(function(){
 		tl.play()
 	})
 
-
+	//--- Select Pax & Nights
 	$('.footer .cta').on('click',function(){
 
 		if(iNumPax == 1 && iNumNights == 1){
@@ -536,6 +580,8 @@ $(function(){
 
 	})
 
+
+	//--- Section Clone for Upgrade
 	$('.section-3 .cta,.section-4 .cta,.section-5 .cta,.section-6 .cta').on('click',function(){
 
 		$('.select-clone').empty()
@@ -547,7 +593,7 @@ $(function(){
 	//--- Upgrade you stay
 	$('.section-7 [type=checkbox]').on('change',function(){
 
-		var fExtraCost = parseFloat($(this).val())
+		fExtraCost = parseFloat($(this).val())
 
 		var exstingTotal = iNumTotal
 
@@ -593,7 +639,7 @@ $(function(){
 	})
 
 
-	//--- Credit Card
+	//--- Credit Card Validation
 	function checkCardName(){
 		var sValue = this.value
 	
