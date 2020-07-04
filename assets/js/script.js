@@ -90,6 +90,9 @@ $(function(){
 				})
 			}
 
+			//--- Resetting Refined Selection
+			$('.section-3 [type=radio], .section-4 [type=radio], .section-5 [type=radio], .section-6 [type=radio]').prop( "checked", false)
+
 			iCurrent--
 
 		//--- Back to Section 3
