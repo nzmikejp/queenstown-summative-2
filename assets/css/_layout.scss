@@ -21,6 +21,11 @@
     }
 }
 
+.animate__backInDown {
+    animation-name: backInDown!important;
+}
+
+
 
 //--- keyframe animations
 @keyframes box-flicker {

@@ -34,17 +34,14 @@ $(function(){
 			$('.header-bg').removeClass('neon-box')
 			progressTl5.play()
 			
-			$('.section-1').removeClass('animate__animated animate__backOutUp').addClass('animate__animated animate__backInDown')
-			$('.section-2').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
-			$('.header').removeClass('animate__animated animate__slideInDown').addClass('animate__animated animate__slideOutUp')
+			$('.section-1').addClass('animate__backInDown').removeClass('animate__backOutUp')
+			$('.section-2').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown')
+			$('.header').removeClass('animate__slideInDown').addClass('animate__slideOutUp')
 
 			$('.section-2').one('animationend',function(){
 
 				$('.footer').addClass('slide').removeClass('slide-d-100')
-				$('.section-1').removeClass('animate__animated animate__backInDown')
-				$('.section-2').removeClass('animate__animated animate__backOutDown')
-				$('.header').removeClass('animate__animated animate__slideOutUp')
-
+		
 			})
 
 			iCurrent--
@@ -52,39 +49,67 @@ $(function(){
 		}else if(iCurrent == 3){
 
 			progressTl6.play()
-			console.log(iRateNight)
-			$('.section-2').removeClass('animate__animated animate__backOutUp').addClass('animate__animated animate__backInDown')
+			$('.section-2').addClass('animate__backInDown').removeClass('animate__backOutUp')
 			
 			if(iRateNight == 157){
-				$('.section-3').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
+				$('.section-3').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+					$('.section-3').removeClass('animate__backOutDown')
+				})
 				
 			}else if(iRateNight == 30){
-				$('.section-4').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
-				
+				$('.section-4').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+					$('.section-4').removeClass('animate__backOutDown')
+				})
 				
 			}else if(iRateNight == 90){
-				$('.section-6').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
-				
-				
+				$('.section-5').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+					$('.section-5').removeClass('animate__backOutDown')
+				})
+
 			}else if(iRateNight == 240){
-				$('.section-6').removeClass('animate__animated animate__backInUp').addClass('animate__animated animate__backOutDown')
+				$('.section-6').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+					$('.section-6').removeClass('animate__backOutDown')
+				})
+			}
+
+			iCurrent--
+
+
+		}else if(iCurrent == 4){
+
+			progressTl7.play()
+
+			if(iRateNight == 157){
+				$('.section-3').addClass('animate__backInDown').removeClass('animate__backOutUp')
+				
+			}else if(iRateNight == 30){
+				$('.section-4').addClass('animate__backInDown').removeClass('animate__backOutUp')
+				
+			}else if(iRateNight == 90){
+				$('.section-5').addClass('animate__backInDown').removeClass('animate__backOutUp')
+
+			}else if(iRateNight == 240){
+				$('.section-6').addClass('animate__backInDown').removeClass('animate__backOutUp')
 				
 			}
-			
-			$('.section-2').one('animationend',function(){
 
-				$('.section-2').removeClass('animate__animated animate__backInDown')
-				$('.section-3').removeClass('animate__animated animate__backOutDown')
-				$('.section-4').removeClass('animate__animated animate__backOutDown')
-				$('.section-5').removeClass('animate__animated animate__backOutDown')
-				$('.section-6').removeClass('animate__animated animate__backOutDown')
-				
+			$('.section-7').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+				$('.section-7').removeClass('animate__backOutDown')
+			})
+
+			iCurrent--
+
+		}else if(iCurrent == 5){
+
+			$('.section-7').addClass('animate__backInDown').removeClass('animate__backOutUp')
+
+			$('.section-8').addClass('animate__backOutDown').removeClass('animate__backInUp').one('animationend',function(){
+				$('.section-8').removeClass('animate__backOutDown')
 			})
 
 			iCurrent--
 
 		}
-
 	})
 
 
@@ -99,7 +124,6 @@ $(function(){
 		update: function(anim) {
 
 			if(anim.progress > 80 && hasFooterAnimPlayed == false){
-				console.log(anim.progress)
 				footer.play()
 				hasFooterAnimPlayed = true
 			}
@@ -308,6 +332,14 @@ $(function(){
 		autoplay: false
 	})
 
+	var progressTl7 = anime({
+		targets: '.progress',
+		easing: 'linear',
+		duration: 1000,
+		width: ['50%'],
+		autoplay: false
+	})
+
 
 
 
@@ -382,9 +414,9 @@ $(function(){
 
 		$('.footer').removeClass('slide').addClass('slide-d-100').one('transitionend',function(){
 
-			$('.section-1').addClass('animate__animated animate__backOutUp')
-			$('.section-2').addClass('animate__animated animate__backInUp')
-			$('.header').addClass('animate__animated animate__slideInDown').one('animationend',function(){
+			$('.section-1').addClass('animate__animated animate__backOutUp').removeClass('animate__backInDown')
+			$('.section-2').addClass('animate__animated animate__backInUp').removeClass('animate__backOutDown')
+			$('.header').addClass('animate__animated animate__slideInDown').removeClass('animate__slideOutUp').one('animationend',function(){
 
 				$('.header-bg').addClass('neon-box')
 				progressTl1.play()
@@ -394,6 +426,7 @@ $(function(){
 		})
 
 		iCurrent++
+
 
 	})
 
@@ -428,7 +461,7 @@ $(function(){
 			}
 		})
 
-		$('.section-2').addClass('animate__animated animate__backOutUp')
+		$('.section-2').addClass('animate__backOutUp').removeClass('animate__backInDown')
 		progressTl2.play()
 		
 		if(iRate == 157){
@@ -465,7 +498,7 @@ $(function(){
 	//--- Section Review
 	$('.section-3 .cta').on('click',function(){
 
-		$('.section-3').addClass('animate__animated animate__backOutUp')
+		$('.section-3').addClass('animate__backOutUp').removeClass('animate__backInDown')
 		$('.section-7').addClass('animate__animated animate__backInUp')
 
 		progressTl3.play()
@@ -475,7 +508,7 @@ $(function(){
 	
 	$('.section-4 .cta').on('click',function(){
 
-		$('.section-4').addClass('animate__animated animate__backOutUp')
+		$('.section-4').addClass('animate__backOutUp').removeClass('animate__backInDown')
 		$('.section-7').addClass('animate__animated animate__backInUp')
 
 		progressTl3.play()
@@ -485,7 +518,7 @@ $(function(){
 	
 	$('.section-5 .cta').on('click',function(){
 
-		$('.section-5').addClass('animate__animated animate__backOutUp')
+		$('.section-5').addClass('animate__backOutUp').removeClass('animate__backInDown')
 		$('.section-7').addClass('animate__animated animate__backInUp')
 
 		progressTl3.play()
@@ -495,7 +528,7 @@ $(function(){
 	
 	$('.section-6 .cta').on('click',function(){
 
-		$('.section-6').addClass('animate__animated animate__backOutUp')
+		$('.section-6').addClass('animate__backOutUp').removeClass('animate__backInDown')
 		$('.section-7').addClass('animate__animated animate__backInUp')
 
 		progressTl3.play()
@@ -551,13 +584,11 @@ $(function(){
 
 	$('.section-7 .cta').on('click',function(){
 
-		$('.section-7').addClass('animate__animated animate__backOutUp')
+		$('.section-7').addClass('animate__backOutUp').removeClass('animate__backInDown')
 		$('.section-8').addClass('animate__animated animate__backInUp')
 
 		progressTl4.play()
 		iCurrent++
-
-	
 
 	})
 

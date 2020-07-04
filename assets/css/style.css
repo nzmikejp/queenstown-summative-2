@@ -60,6 +60,11 @@ h4, p {
           animation: btn-glow 5s linear infinite;
 }
 
+.animate__backInDown {
+  -webkit-animation-name: backInDown !important;
+          animation-name: backInDown !important;
+}
+
 @-webkit-keyframes box-flicker {
   0% {
     opacity: 0.1;
