@@ -9,6 +9,197 @@ $(function(){
 	var iRateNight = 0
 	var iUpgrades = 0
 	var iCurrent = 1
+
+
+	//--- Loading Footer
+	function loadFooter(){
+
+		$('.footer').addClass('slide').removeClass('slide-d-100')
+			
+		$('.dash-rate').find('.dash-amount').removeClass('neon-el-blue')
+		$('.dash-total').find('.dash-amount').removeClass('neon-el-blue')
+
+		iNumTotal = 0
+		iRateNight = 0
+
+	}
+
+	//--- Page Detect
+	function pageDetect(){
+
+		if(iRateNight == 157){
+			$('.section-3').removeClass('animate__backInUp animate__backOutUp')
+			
+		}else if(iRateNight == 30){
+			$('.section-4').removeClass('animate__backInUp animate__backOutUp')
+			
+		}else if(iRateNight == 90){
+			$('.section-5').removeClass('animate__backInUp animate__backOutUp')
+
+		}else if(iRateNight == 240){
+			$('.section-6').removeClass('animate__backInUp animate__backOutUp')
+
+		}
+
+	}
+
+	//--- Resetting Upgrades
+	function resettingUpgrades(){
+
+		$('.section-7 [type=checkbox]').prop( "checked", false)
+
+		var iExstingTotal = iNumTotal
+		var iNumReducedTotal = iExstingTotal - iUpgrades
+
+		$('.dash-total').find('span').html(iNumReducedTotal)
+
+		var thisTotal = $('.dash-total').find('span')
+		
+		$({Counter: iExstingTotal}).animate({Counter: thisTotal.text()}, {
+			duration: 3000,
+			step: function () {
+				thisTotal.text(Math.ceil(this.Counter).toFixed(0));
+			}
+		})
+
+		iUpgrades = 0
+		iNumTotal = iNumReducedTotal
+		
+	}
+
+	//--- Resetting Refined Selection
+	function resettingRefined(){
+
+		$('.section-3 [type=radio], .section-4 [type=radio], .section-5 [type=radio], .section-6 [type=radio]').prop( "checked", false)
+
+	}
+
+	//--- Credit Card Validation
+	function checkCardName(){
+		var sValue = this.value
+	
+		var isValid = false
+	
+		if(sValue == ''){
+			this.nextElementSibling.className = 'message-error'
+		}else {
+			var oAlphabeticExp = /^[a-zA-Z]*\s?([a-zA-Z\-\']+\s)+[a-zA-Z\-\']+$/
+			var bResult = oAlphabeticExp.test(sValue)
+			
+			if(bResult == false){
+				this.nextElementSibling.className = 'message-error'
+			}else {
+				this.nextElementSibling.className = 'message-sucess'
+				isValid = true
+			}
+		}
+	
+		return isValid
+	}
+
+	function checkCardNum(){
+		var sValue = this.value
+		var iValueNum = parseInt(sValue.charAt(0))
+	
+		var isValid = false
+	
+		if(sValue == ''){
+			this.nextElementSibling.className = 'message-error'
+		}else {
+			var oNumExp = /^((?:4\d{3})|(?:5[1-5]\d{2})|(?:6011)|(?:3[68]\d{2})|(?:30[012345]\d))[ -]?(\d{4})[ -]?(\d{4})[ -]?(\d{4}|3[4,7]\d{13})$/
+			var bResult = oNumExp.test(sValue)
+	
+			if(bResult == false){
+				this.nextElementSibling.className = 'message-error'
+			}else {
+				var oCardBg = document.querySelector('.credit-card-image')
+	
+				if(iValueNum == 4){
+
+					oCardBg.classList.remove('mc')
+					oCardBg.classList.add('visa')
+
+				}else if(iValueNum == 5){
+
+					oCardBg.classList.remove('visa')
+					oCardBg.classList.add('mc')
+
+				}
+	
+				this.nextElementSibling.className = 'message-sucess'
+				isValid = true
+			}
+		}
+	
+		return isValid
+	}
+
+	function checkCardExp(){
+		var sValue = this.value
+	
+		var isValid = false
+	
+		if(sValue == ''){
+			this.nextElementSibling.className = 'message-error'
+		}else {
+			var oDateExp = /^((0[1-9])|(1[0-2]))\/(\d{2})$/
+			var bResult = oDateExp.test(sValue)
+	
+			if(bResult == false){
+				this.nextElementSibling.className = 'message-error'
+			}else {
+				this.nextElementSibling.className = 'message-sucess'
+				isValid = true
+			}
+		}
+	
+		return isValid
+	}
+
+	function checkCvvNum(){
+		var sValue = this.value
+	
+		var isValid = false
+	
+		if(sValue == ''){
+			this.nextElementSibling.className = 'message-error'
+		}else {
+			var oCvvExp = /^([0-9]{3,4})$/
+			var bResult = oCvvExp.test(sValue)
+	
+			if(bResult == false){
+				this.nextElementSibling.className = 'message-error'
+			}else {
+				this.nextElementSibling.className = 'message-sucess'
+				isValid = true
+			}
+		}
+	
+		return isValid
+	}
+
+	function checkAll(e){
+		var isNameValid = checkCardName.call(oName)
+		var isCardNumValid = checkCardNum.call(oNumber)
+		var isCardExpValid = checkCardExp.call(oExpiry)
+		var isCardCvvValid = checkCvvNum.call(oCvv)
+	
+		var isAllValid = isNameValid && isCardNumValid && isCardExpValid && isCardCvvValid
+	
+		if(isAllValid == false){
+			e.preventDefault()
+		}
+	}
+
+	function changeName(){	
+		var oCardName = document.querySelector('.cc-name')
+		oCardName.innerHTML = this.value
+	}
+	
+	function changeNumber(){
+		var oCardNumber = document.querySelector('.cc-number')
+		oCardNumber.innerHTML = this.value
+	}
 	
 	
 	
@@ -29,6 +220,8 @@ $(function(){
 						
 			bIsOpen = false
 		}
+
+		//--- Menu active links
 
 		$('.menu-links a').removeClass('active')
 
@@ -53,6 +246,227 @@ $(function(){
 
 	})
 
+	//--- Menu Links Select
+	$('.menu-links a').each(function(){
+
+		$(this).on('click',function(e){
+			e.preventDefault()
+			
+			var iFlag = $(this).data('to')
+
+			$('.menu-btn').removeClass('open')
+			$('.menu').removeClass('open').delay(3000).one('transitionend',function(){
+
+				if(iFlag == 1){
+					$('.header-bg').removeClass('neon-box')
+					progressTl5.play()
+	
+					$('.section-1').addClass('animate__backInDown').removeClass('animate__backOutUp')
+					$('.header').removeClass('animate__slideInDown').addClass('animate__slideOutUp')
+					$('.select').removeClass('active')
+	
+					if(iCurrent == 2){
+						$('.section-2').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown')
+	
+						$('.section-2').one('animationend',function(){
+
+							loadFooter()
+						})
+	
+					}else if(iCurrent == 3){
+						$('.section-2').removeClass('animate__backInUp animate__backOutUp')
+	
+						if(iRateNight == 157){
+
+							$('.section-3').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+								$('.section-3').removeClass('animate__backOutDown')
+
+								loadFooter()
+							})
+							
+						}else if(iRateNight == 30){
+							$('.section-4').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+								$('.section-4').removeClass('animate__backOutDown')
+
+								loadFooter()
+							})
+							
+						}else if(iRateNight == 90){
+							$('.section-5').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+								$('.section-5').removeClass('animate__backOutDown')
+
+								loadFooter()
+							})
+			
+						}else if(iRateNight == 240){
+							$('.section-6').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+								$('.section-6').removeClass('animate__backOutDown')
+
+								loadFooter()
+							})
+	
+						}
+	
+					}else if(iCurrent == 4){
+						$('.section-2').removeClass('animate__backInUp animate__backOutUp')
+
+						pageDetect()
+						resettingRefined()
+						resettingUpgrades()
+
+						$('.section-7').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+							$('.section-7').removeClass('animate__backOutDown')
+
+							loadFooter()
+						})
+	
+					}else if(iCurrent == 5){
+						$('.section-2').removeClass('animate__backInUp animate__backOutUp')
+
+						pageDetect()
+						resettingRefined()
+						resettingUpgrades()
+
+
+						$('.section-7').removeClass('animate__backInUp animate__backOutUp')
+
+						$('.section-8').addClass('animate__backOutDown').removeClass('animate__backInUp').one('animationend',function(){
+							$('.section-8').removeClass('animate__backOutDown')
+
+							loadFooter()
+						})
+	
+					}
+
+					iCurrent = 1
+	
+				}else if(iFlag == 2){
+					$('.section-2').addClass('animate__backInDown').removeClass('animate__backOutUp')
+					progressTl6.play()
+
+					if(iCurrent == 3){
+	
+						if(iRateNight == 157){
+
+							$('.section-3').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+								$('.section-3').removeClass('animate__backOutDown')
+
+							})
+							
+						}else if(iRateNight == 30){
+							$('.section-4').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+								$('.section-4').removeClass('animate__backOutDown')
+
+							})
+							
+						}else if(iRateNight == 90){
+							$('.section-5').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+								$('.section-5').removeClass('animate__backOutDown')
+
+							})
+			
+						}else if(iRateNight == 240){
+							$('.section-6').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+								$('.section-6').removeClass('animate__backOutDown')
+
+							})
+	
+						}
+	
+					}else if(iCurrent == 4){
+
+						pageDetect()
+						resettingRefined()
+						resettingUpgrades()
+
+						$('.section-7').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+							$('.section-7').removeClass('animate__backOutDown')
+						})
+	
+					}else if(iCurrent == 5){
+
+						pageDetect()
+						resettingRefined()
+						resettingUpgrades()
+
+
+						$('.section-7').removeClass('animate__backInUp animate__backOutUp')
+
+						$('.section-8').addClass('animate__backOutDown').removeClass('animate__backInUp').one('animationend',function(){
+							$('.section-8').removeClass('animate__backOutDown')
+						})
+	
+					}
+
+					iCurrent = 2
+				
+				}else if(iFlag == 3){
+					progressTl7.play()
+
+					if(iRateNight == 157){
+						$('.section-3').addClass('animate__backInDown').removeClass('animate__backOutUp')
+						
+					}else if(iRateNight == 30){
+						$('.section-4').addClass('animate__backInDown').removeClass('animate__backOutUp')
+						
+					}else if(iRateNight == 90){
+						$('.section-5').addClass('animate__backInDown').removeClass('animate__backOutUp')
+			
+					}else if(iRateNight == 240){
+						$('.section-6').addClass('animate__backInDown').removeClass('animate__backOutUp')
+			
+					}
+
+					if(iCurrent == 4){
+
+						pageDetect()
+						resettingUpgrades()
+
+						$('.section-7').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
+							$('.section-7').removeClass('animate__backOutDown')
+						})
+
+					}else if(iCurrent == 5){
+
+						pageDetect()
+						resettingUpgrades()
+
+						$('.section-7').removeClass('animate__backInUp animate__backOutUp')
+
+						$('.section-8').addClass('animate__backOutDown').removeClass('animate__backInUp').one('animationend',function(){
+							$('.section-8').removeClass('animate__backOutDown')
+						})
+
+					}
+
+					iCurrent = 3
+
+					
+				}else if(iFlag == 4){
+					$('.section-7').addClass('animate__backInDown').removeClass('animate__backOutUp')
+					progressTl8.play()
+
+					if(iCurrent == 5){
+
+						pageDetect()
+
+						$('.section-8').addClass('animate__backOutDown').removeClass('animate__backInUp').one('animationend',function(){
+							$('.section-8').removeClass('animate__backOutDown')
+						})
+
+					}
+
+					iCurrent = 4
+				}
+
+			})
+						
+			bIsOpen = false
+			
+		})
+
+	})
+
 
 	//--- Main Back Button Program
 	$('.back-btn').on('click',function(){
@@ -69,17 +483,7 @@ $(function(){
 
 			$('.section-2').one('animationend',function(){
 
-				$('.footer').addClass('slide').removeClass('slide-d-100')
-
-				$('.dash-rate').find('.dash-amount').removeClass('neon-el-blue')
-				$('.dash-total').find('.dash-amount').removeClass('neon-el-blue')
-
-				$('.dash-rate').find('span').html(0)
-				$('.dash-total').find('span').html(0)
-
-				iNumTotal = 0
-				iRateNight = 0
-		
+				loadFooter()
 			})
 
 			iCurrent--
@@ -111,8 +515,7 @@ $(function(){
 				})
 			}
 
-			//--- Resetting Refined Selection
-			$('.section-3 [type=radio], .section-4 [type=radio], .section-5 [type=radio], .section-6 [type=radio]').prop( "checked", false)
+			resettingRefined()
 
 			iCurrent--
 
@@ -139,26 +542,7 @@ $(function(){
 				$('.section-7').removeClass('animate__backOutDown')
 			})
 
-
-			//--- Resetting Upgrades
-			$('.section-7 [type=checkbox]').prop( "checked", false)
-
-			var iExstingTotal = iNumTotal
-			var iNumReducedTotal = iExstingTotal - iUpgrades
-
-			$('.dash-total').find('span').html(iNumReducedTotal)
-
-			var thisTotal = $('.dash-total').find('span')
-			
-			$({Counter: iExstingTotal}).animate({Counter: thisTotal.text()}, {
-				duration: 3000,
-				step: function () {
-					thisTotal.text(Math.ceil(this.Counter).toFixed(0));
-				}
-			})
-
-			iUpgrades = 0
-			iNumTotal = iNumReducedTotal
+			resettingUpgrades()
 
 			iCurrent--
 
@@ -404,6 +788,14 @@ $(function(){
 		autoplay: false
 	})
 
+	var progressTl8 = anime({
+		targets: '.progress',
+		easing: 'linear',
+		duration: 1000,
+		width: ['75%'],
+		autoplay: false
+	})
+
 
 
 
@@ -416,6 +808,9 @@ $(function(){
 
 	//--- Select Pax & Nights
 	$('.footer .cta').on('click',function(){
+
+		$('.dash-rate').find('span').html(0)
+		$('.dash-total').find('span').html(0)
 
 		if(iNumPax == 1 && iNumNights == 1){
 
@@ -651,7 +1046,7 @@ $(function(){
 			}
 		})
 
-		console.log(iUpgrades)
+
 
 	})
 
@@ -666,133 +1061,8 @@ $(function(){
 	})
 
 
-	//--- Credit Card Validation
-	function checkCardName(){
-		var sValue = this.value
 	
-		var isValid = false
-	
-		if(sValue == ''){
-			this.nextElementSibling.className = 'message-error'
-		}else {
-			var oAlphabeticExp = /^[a-zA-Z]*\s?([a-zA-Z\-\']+\s)+[a-zA-Z\-\']+$/
-			var bResult = oAlphabeticExp.test(sValue)
-			
-			if(bResult == false){
-				this.nextElementSibling.className = 'message-error'
-			}else {
-				this.nextElementSibling.className = 'message-sucess'
-				isValid = true
-			}
-		}
-	
-		return isValid
-	}
-
-	function checkCardNum(){
-		var sValue = this.value
-		var iValueNum = parseInt(sValue.charAt(0))
-	
-		var isValid = false
-	
-		if(sValue == ''){
-			this.nextElementSibling.className = 'message-error'
-		}else {
-			var oNumExp = /^((?:4\d{3})|(?:5[1-5]\d{2})|(?:6011)|(?:3[68]\d{2})|(?:30[012345]\d))[ -]?(\d{4})[ -]?(\d{4})[ -]?(\d{4}|3[4,7]\d{13})$/
-			var bResult = oNumExp.test(sValue)
-	
-			if(bResult == false){
-				this.nextElementSibling.className = 'message-error'
-			}else {
-				var oCardBg = document.querySelector('.credit-card-image')
-	
-				if(iValueNum == 4){
-
-					oCardBg.classList.remove('mc')
-					oCardBg.classList.add('visa')
-
-				}else if(iValueNum == 5){
-
-					oCardBg.classList.remove('visa')
-					oCardBg.classList.add('mc')
-
-				}
-	
-				this.nextElementSibling.className = 'message-sucess'
-				isValid = true
-			}
-		}
-	
-		return isValid
-	}
-
-	function checkCardExp(){
-		var sValue = this.value
-	
-		var isValid = false
-	
-		if(sValue == ''){
-			this.nextElementSibling.className = 'message-error'
-		}else {
-			var oDateExp = /^((0[1-9])|(1[0-2]))\/(\d{2})$/
-			var bResult = oDateExp.test(sValue)
-	
-			if(bResult == false){
-				this.nextElementSibling.className = 'message-error'
-			}else {
-				this.nextElementSibling.className = 'message-sucess'
-				isValid = true
-			}
-		}
-	
-		return isValid
-	}
-
-	function checkCvvNum(){
-		var sValue = this.value
-	
-		var isValid = false
-	
-		if(sValue == ''){
-			this.nextElementSibling.className = 'message-error'
-		}else {
-			var oCvvExp = /^([0-9]{3,4})$/
-			var bResult = oCvvExp.test(sValue)
-	
-			if(bResult == false){
-				this.nextElementSibling.className = 'message-error'
-			}else {
-				this.nextElementSibling.className = 'message-sucess'
-				isValid = true
-			}
-		}
-	
-		return isValid
-	}
-
-	function checkAll(e){
-		var isNameValid = checkCardName.call(oName)
-		var isCardNumValid = checkCardNum.call(oNumber)
-		var isCardExpValid = checkCardExp.call(oExpiry)
-		var isCardCvvValid = checkCvvNum.call(oCvv)
-	
-		var isAllValid = isNameValid && isCardNumValid && isCardExpValid && isCardCvvValid
-	
-		if(isAllValid == false){
-			e.preventDefault()
-		}
-	}
-
-	function changeName(){	
-		var oCardName = document.querySelector('.cc-name')
-		oCardName.innerHTML = this.value
-	}
-	
-	function changeNumber(){
-		var oCardNumber = document.querySelector('.cc-number')
-		oCardNumber.innerHTML = this.value
-	}
-
+	//--- Section 8 Credit Card
 	var oName = document.querySelector('#c-name')
 	oName.addEventListener('blur', checkCardName)
 
