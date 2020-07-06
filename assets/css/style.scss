@@ -454,23 +454,19 @@
     
         label {
             @include f-position(center, center);
-            padding: 0 1.5em;
+            padding: 0 2em;
     
             .card-deal {
                 flex: 1 0 30%;
-
-                p {
-                    font-size: 0.7em;
-                    text-transform: uppercase;
-                }
+                font-size: 0.7em;
+                text-transform: uppercase;
+                color: $mid-blue-gray;
             }
     
             .card-price {
                 flex: 0 0 22%;
-  
-                p {
-                    font-size: 0.7em;
-                }
+                font-size: 0.7em;
+                color: $mid-blue-gray;
             }
             
             .check-deal {

@@ -200,6 +200,83 @@ body {
     pointer-events: initial;
 }
 
+.about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: $bg-gradient;
+    clip-path: circle(0% at center);
+    transition: ease 0.5s all;
+    opacity: 0;
+    z-index: 100;
+    overflow-y: scroll;
+    pointer-events: none;
+
+    .about-header {
+        @include f-position(space-between, center);
+        padding: 1.3em 1.3em 0.8em 1.3em;
+    }
+
+    .about-logo {
+        img {
+            display: block;
+            width: 3.72em;
+        }
+    }
+
+    .about-btn {
+        text-transform: uppercase;
+        font-size: 0.8em;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    .about-card-image {
+        img {
+            display: block;
+            width: 20.6em;
+            border-radius: $image-radius-right;
+        }
+    }
+
+    .about-card {
+        position: relative;
+        border: thin red solid;
+
+        &:after {
+            content: '';
+            width: 80%;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom: thin $dark-color-80;
+        }
+    }
+
+    .about-card-title {
+        color: $light-color-100;
+        font-size: 0.9em;
+        width: 80%;
+        margin-left: 1.6rem;
+        margin-top: 1.5em;
+    }
+
+    .about-card-content {
+        font-size: 0.625em;
+        width: 80%;
+        margin-left: 1.6rem;
+    }
+}
+
+.about.open {
+    clip-path: circle(75%);
+    opacity: 1;
+    pointer-events: initial;
+}
+
 .footer {
     position: fixed;
     width: 100%;

@@ -254,6 +254,12 @@ $(function(){
 			
 			var iFlag = $(this).data('to')
 
+			if(iFlag == 5){
+
+				$('.about').addClass('open')
+
+			}else{
+
 			$('.menu-btn').removeClass('open')
 			$('.menu').removeClass('open').delay(3000).one('transitionend',function(){
 
@@ -458,8 +464,9 @@ $(function(){
 
 					iCurrent = 4
 				}
-
 			})
+
+			}
 						
 			bIsOpen = false
 			
@@ -549,6 +556,8 @@ $(function(){
 		//--- Back to Section 4	
 		}else if(iCurrent == 5){
 
+			progressTl8.play()
+
 			$('.section-7').addClass('animate__backInDown').removeClass('animate__backOutUp')
 
 			$('.section-8').addClass('animate__backOutDown').removeClass('animate__backInUp').one('animationend',function(){
@@ -558,6 +567,13 @@ $(function(){
 			iCurrent--
 
 		}
+	})
+
+	//--- About Close Button
+	$('.about-btn').on('click',function(){
+
+		$('.about').removeClass('open')
+
 	})
 
 

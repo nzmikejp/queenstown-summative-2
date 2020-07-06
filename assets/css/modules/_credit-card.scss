@@ -88,8 +88,8 @@
 
     input + span {
         position: absolute;
-        width: 1.9em;
-        height: 1.9em;
+        width: 1.6em;
+        height: 1.6em;
         top: 50%;
         right: 0;
         transform: translate(20%, -50%);
@@ -127,7 +127,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 1.2em;
+            margin-top: 0.5px;
+            font-size: 1em;
             color: $neon-red; 
         }
     }
