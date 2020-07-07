@@ -71,7 +71,7 @@ $(function(){
 	function resettingRefined(){
 
 		$('.section-3 [type=radio], .section-4 [type=radio], .section-5 [type=radio], .section-6 [type=radio]').prop( "checked", false)
-
+		$('.section-3 .cta, .section-4 .cta, .section-5 .cta, .section-6 .cta').removeClass('neon-btn').addClass('deactive')
 	}
 
 	//--- Credit Card Validation
