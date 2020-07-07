@@ -179,6 +179,8 @@ $(function(){
 	}
 
 	function checkAll(e){
+		e.preventDefault()
+
 		var isNameValid = checkCardName.call(oName)
 		var isCardNumValid = checkCardNum.call(oNumber)
 		var isCardExpValid = checkCardExp.call(oExpiry)
@@ -186,9 +188,12 @@ $(function(){
 	
 		var isAllValid = isNameValid && isCardNumValid && isCardExpValid && isCardCvvValid
 	
-		if(isAllValid == false){
-			e.preventDefault()
+		if(isAllValid == true){
+			$('.payment-approval-wrap').addClass('animate__animated animate__backInUp')
+			
 		}
+
+
 	}
 
 	function changeName(){	
@@ -247,18 +252,18 @@ $(function(){
 	})
 
 	//--- Menu Links Select
-	$('.menu-links a').each(function(){
 
-		$(this).on('click',function(e){
-			e.preventDefault()
-			
-			var iFlag = $(this).data('to')
 
-			if(iFlag == 5){
+	$('.menu-links a').on('click',function(e){
+		e.preventDefault()
+		
+		var iFlag = $(this).data('to')
 
-				$('.about').addClass('open')
+		if(iFlag == 5){
 
-			}else{
+			$('.about').addClass('open')
+
+		}else{
 
 			$('.menu-btn').removeClass('open')
 			$('.menu').removeClass('open').delay(3000).one('transitionend',function(){
@@ -266,22 +271,22 @@ $(function(){
 				if(iFlag == 1){
 					$('.header-bg').removeClass('neon-box')
 					progressTl5.play()
-	
+
 					$('.section-1').addClass('animate__backInDown').removeClass('animate__backOutUp')
 					$('.header').removeClass('animate__slideInDown').addClass('animate__slideOutUp')
 					$('.select').removeClass('active')
-	
+
 					if(iCurrent == 2){
 						$('.section-2').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown')
-	
+
 						$('.section-2').one('animationend',function(){
 
 							loadFooter()
 						})
-	
+
 					}else if(iCurrent == 3){
 						$('.section-2').removeClass('animate__backInUp animate__backOutUp')
-	
+
 						if(iRateNight == 157){
 
 							$('.section-3').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
@@ -310,9 +315,9 @@ $(function(){
 
 								loadFooter()
 							})
-	
+
 						}
-	
+
 					}else if(iCurrent == 4){
 						$('.section-2').removeClass('animate__backInUp animate__backOutUp')
 
@@ -325,7 +330,7 @@ $(function(){
 
 							loadFooter()
 						})
-	
+
 					}else if(iCurrent == 5){
 						$('.section-2').removeClass('animate__backInUp animate__backOutUp')
 
@@ -341,17 +346,22 @@ $(function(){
 
 							loadFooter()
 						})
-	
+						
+						iNumTotal = 0
+		
+						$('.dash-rate').find('span').html(0)
+						$('.dash-total').find('span').html(0)
+
 					}
 
 					iCurrent = 1
-	
+
 				}else if(iFlag == 2){
 					$('.section-2').addClass('animate__backInDown').removeClass('animate__backOutUp')
 					progressTl6.play()
 
 					if(iCurrent == 3){
-	
+
 						if(iRateNight == 157){
 
 							$('.section-3').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
@@ -376,9 +386,11 @@ $(function(){
 								$('.section-6').removeClass('animate__backOutDown')
 
 							})
-	
+
 						}
-	
+
+						resettingRefined()
+
 					}else if(iCurrent == 4){
 
 						pageDetect()
@@ -388,7 +400,7 @@ $(function(){
 						$('.section-7').addClass('animate__backOutDown').removeClass('animate__backInUp animate__backInDown').one('animationend',function(){
 							$('.section-7').removeClass('animate__backOutDown')
 						})
-	
+
 					}else if(iCurrent == 5){
 
 						pageDetect()
@@ -401,7 +413,7 @@ $(function(){
 						$('.section-8').addClass('animate__backOutDown').removeClass('animate__backInUp').one('animationend',function(){
 							$('.section-8').removeClass('animate__backOutDown')
 						})
-	
+
 					}
 
 					iCurrent = 2
@@ -465,13 +477,10 @@ $(function(){
 					iCurrent = 4
 				}
 			})
-
-			}
-						
 			bIsOpen = false
-			
-		})
-
+		}
+					
+		
 	})
 
 

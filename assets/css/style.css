@@ -325,7 +325,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1.3em 1.3em 0.8em 1.3em;
+  padding: 1.3em 1.3em 0 1.3em;
 }
 
 .about .about-logo img {
@@ -348,18 +348,23 @@ body {
 
 .about .about-card {
   position: relative;
-  border: thin red solid;
+  padding: 1em 0;
+  margin-bottom: 1em;
 }
 
 .about .about-card:after {
   content: '';
+  position: absolute;
   width: 80%;
-  height: 1px;
   bottom: 0;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  border-bottom: thin #404359;
+  border-bottom: thin #404359 solid;
+}
+
+.about .about-card:last-child:after {
+  display: none;
 }
 
 .about .about-card-title {
@@ -1588,13 +1593,13 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 2em;
+  padding: 0.3em 1.5em;
 }
 
 .section-7 .card label .card-deal {
@@ -1672,9 +1677,95 @@ body {
 .section-8 {
   overflow-y: scroll;
   padding-top: 15em;
+  position: relative;
 }
 
 .section-8 .cta {
   margin: 2.5em auto;
+}
+
+.section-8 .payment-approval-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-8 .payment-approval {
+  width: 17em;
+  height: 24em;
+  padding: 2em 1em 1em 1em;
+  background-color: #F2F2F2;
+  border-radius: 0.5em;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-8 .payment-approval:after {
+  content: '';
+  width: 95%;
+  height: 96%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 0.2em;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#F2F2F2), to(#fff));
+  background-image: linear-gradient(#F2F2F2, #fff);
+}
+
+.section-8 .payment-icon {
+  position: relative;
+  z-index: 1;
+  width: 95px;
+  height: 95px;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.section-8 h3 {
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: thin #dddde8 solid;
+  padding-bottom: 1em;
+  position: relative;
+  z-index: 2;
+}
+
+.section-8 p {
+  font-size: 0.6em;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.section-8 p span {
+  display: block;
+  width: 90%;
+  margin: 0.5em auto;
+  text-transform: uppercase;
+}
+
+.section-8 .logo {
+  display: block;
+  width: 3.9em;
+  position: relative;
+  z-index: 2;
+  margin: 1em auto;
 }
 /*# sourceMappingURL=style.css.map */

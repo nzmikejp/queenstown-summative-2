@@ -216,7 +216,7 @@ body {
 
     .about-header {
         @include f-position(space-between, center);
-        padding: 1.3em 1.3em 0.8em 1.3em;
+        padding: 1.3em 1.3em 0 1.3em;
     }
 
     .about-logo {
@@ -243,16 +243,23 @@ body {
 
     .about-card {
         position: relative;
-        border: thin red solid;
+        padding: 1em 0;
+        margin-bottom: 1em;
 
         &:after {
             content: '';
+            position: absolute;
             width: 80%;
-            height: 1px;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            border-bottom: thin $dark-color-80;
+            border-bottom: thin $dark-color-80 solid;
+        }
+    }
+
+    .about-card:last-child {
+        &:after {
+            display: none;
         }
     }
 

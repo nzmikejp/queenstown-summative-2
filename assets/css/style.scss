@@ -453,8 +453,8 @@
         }
     
         label {
-            @include f-position(center, center);
-            padding: 0 2em;
+            @include f-position(space-between, center);
+            padding: 0.3em 1.5em;
     
             .card-deal {
                 flex: 1 0 30%;
@@ -521,8 +521,83 @@
 .section-8 {
     overflow-y: scroll;
     padding-top: 15em;
+    position: relative;
 
     .cta {
         margin: 2.5em auto;
+    }
+
+    .payment-approval-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        width: 100%;
+        height: 100%;
+        @include f-position(center, center);
+    }
+
+    .payment-approval {
+        width: 17em;
+        height: 24em;
+        padding: 2em 1em 1em 1em;
+        background-color: #F2F2F2;
+        border-radius: 0.5em;
+        position: relative;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            width: 95%;
+            height: 96%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 0.2em;
+            background-image: linear-gradient(#F2F2F2, #fff);
+        }
+    }
+
+    .payment-icon {
+        position: relative;
+        z-index: 1;
+        width: 95px;
+        height: 95px;
+        background-color: transparent;
+        margin: 0 auto;
+    }
+
+    h3 {
+        text-align: center;
+        text-transform: uppercase;
+        border-bottom: thin lighten($mid-blue-gray, 25%) solid;
+        padding-bottom: 1em;
+        position: relative;
+        z-index: 2;
+    }
+
+    p {
+        font-size: 0.6em;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2; 
+
+        span {
+            display: block;
+            width: 90%;
+            margin: 0.5em auto;
+            text-transform: uppercase; 
+        }
+    }
+
+    .logo {
+        display: block;
+        width: 3.9em;
+        position: relative;
+        z-index: 2;
+        margin: 1em auto;
     }
 }
