@@ -56,8 +56,8 @@ h4, p {
 }
 
 .neon-btn:after {
-  -webkit-animation: btn-glow 5s linear infinite;
-          animation: btn-glow 5s linear infinite;
+  -webkit-animation: btn-glow 3s linear infinite;
+          animation: btn-glow 3s linear infinite;
 }
 
 .animate__backInDown {
@@ -546,8 +546,8 @@ body {
   height: 100%;
   background-color: #1C2130;
   border-radius: 50%;
-  -webkit-animation: btn-glow 5s linear infinite;
-          animation: btn-glow 5s linear infinite;
+  -webkit-animation: btn-glow 3s linear infinite;
+          animation: btn-glow 3s linear infinite;
   z-index: -1;
 }
 
@@ -923,8 +923,8 @@ body {
   border-radius: 5px;
   -webkit-filter: blur(2px);
           filter: blur(2px);
-  -webkit-animation: bar-pulse 5s ease infinite;
-          animation: bar-pulse 5s ease infinite;
+  -webkit-animation: bar-pulse 3s ease infinite;
+          animation: bar-pulse 3s ease infinite;
 }
 
 @-webkit-keyframes bar-pulse {
@@ -1659,8 +1659,8 @@ body {
   height: 100%;
   background-color: #1C2130;
   border-radius: 50%;
-  -webkit-animation: btn-glow 5s linear infinite;
-          animation: btn-glow 5s linear infinite;
+  -webkit-animation: btn-glow 3s linear infinite;
+          animation: btn-glow 3s linear infinite;
   z-index: -1;
 }
 
