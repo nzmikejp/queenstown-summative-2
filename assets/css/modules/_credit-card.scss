@@ -5,7 +5,7 @@
     border-radius: 0.3em;
     margin: 0 auto 3em auto;
     @include bg-images(cover, center);
-    background-image: url(/assets/images/c-card-bg.png);
+    background-image: url(../../../assets/images/c-card-bg.png);
     box-shadow: 0 0.5em 1em -0.5em rgba(0,0,0,0.6);
     position: relative;
 
@@ -45,11 +45,11 @@
 }
 
 .credit-card-image.visa {
-    background-image: url(/assets/images/c-card-bg-visa.png);
+    background-image: url(../../../assets/images/c-card-bg-visa.png);
 }
 
 .credit-card-image.mc {
-    background-image: url(/assets/images/c-card-bg-mc.png);
+    background-image: url(../../../assets/images/c-card-bg-mc.png);
 }
 
 .credit-card-input {

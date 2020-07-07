@@ -179,6 +179,7 @@
 .section-2 {
     padding-top: 15em;
     text-align: center;
+    overflow: hidden;
 
     h2 {
         font-size: 1.3em;
@@ -274,8 +275,14 @@
 }
 
 .section-3 {
-    overflow-y: scroll;
     padding-top: 12em;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .cta {
         margin: 2.5em auto;
@@ -289,8 +296,14 @@
 }
 
 .section-4 {
-    overflow-y: scroll;
     padding-top: 12em;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .cta {
         margin: 2.5em auto;
@@ -304,8 +317,14 @@
 }
 
 .section-5 {
-    overflow-y: scroll;
     padding-top: 12em;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .cta {
         margin: 2.5em auto;
@@ -319,8 +338,14 @@
 }
 
 .section-6 {
-    overflow-y: scroll;
     padding-top: 12em;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .cta {
         margin: 2.5em auto;
@@ -334,8 +359,14 @@
 }
 
 .section-7 {
-    overflow-y: scroll;
     padding-top: 13em;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .select-clone {
         border-bottom: thin $dark-color-80 solid;
@@ -347,7 +378,6 @@
 
             .card-image {
             flex: 0 0 40%;
-            height: 8em;
             @include bg-images(cover, center);
             
             img {
@@ -384,7 +414,6 @@
         }
             .card-image {
                 flex: 0 0 40%;
-                height: 8em;
                 @include bg-images(cover, center);
                 
                 img {
@@ -519,7 +548,7 @@
 }
 
 .section-8 {
-    overflow-y: scroll;
+    overflow: hidden;
     padding-top: 15em;
     position: relative;
 
