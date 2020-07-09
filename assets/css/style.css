@@ -570,7 +570,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(/assets/images/c-card-bg.png);
   -webkit-box-shadow: 0 0.5em 1em -0.5em rgba(0, 0, 0, 0.6);
           box-shadow: 0 0.5em 1em -0.5em rgba(0, 0, 0, 0.6);
   position: relative;
@@ -611,11 +610,11 @@ body {
 }
 
 .credit-card-image.visa {
-  background-image: url(/assets/images/c-card-bg-visa.png);
+  background-image: url(/Queenstown-Summative-2/assets/images/c-card-bg-visa.png);
 }
 
 .credit-card-image.mc {
-  background-image: url(/assets/images/c-card-bg-mc.png);
+  background-image: url(/Queenstown-Summative-2/assets/images/c-card-bg-mc.png);
 }
 
 .credit-card-input {
@@ -1712,6 +1711,18 @@ body {
 
 .section-8 .cta {
   margin: 2.5em auto;
+}
+
+.section-8 .credit-card-image {
+  background-image: url(../images/c-card-bg.png);
+}
+
+.section-8 .credit-card-image.visa {
+  background-image: url(../images/c-card-bg-visa.png);
+}
+
+.section-8 .credit-card-image.mc {
+  background-image: url(../images/c-card-bg-mc.png);
 }
 
 .section-8 .payment-approval-wrap {

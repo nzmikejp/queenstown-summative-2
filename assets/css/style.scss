@@ -551,6 +551,18 @@
         margin: 2.5em auto;
     }
 
+    .credit-card-image {
+        background-image: url(../images/c-card-bg.png);
+    }
+
+    .credit-card-image.visa {
+        background-image: url(../images/c-card-bg-visa.png);
+    }
+    
+    .credit-card-image.mc {
+        background-image: url(../images/c-card-bg-mc.png);
+    }
+
     .payment-approval-wrap {
         position: absolute;
         top: 0;
